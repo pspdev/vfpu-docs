@@ -7,8 +7,8 @@ the main CPU of Sony's PSP.
 
 Latest docs revision can be found here:
 
-  - [HTML format](https://davidgfnet.github.io/psp-vfpu-docs/)
-  - [PDF format](https://davidgfnet.github.io/psp-vfpu-docs/docs.pdf)
+  - [HTML format](https://pspdev.github.io/vfpu-docs/)
+  - [PDF format](https://pspdev.github.io/vfpu-docs/docs.pdf)
 
 Current documentation is incomplete, scattered all over the internet (in some
 forums, personal websites, github repos and projects, etc) and, in many cases,
