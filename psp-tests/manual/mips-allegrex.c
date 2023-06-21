@@ -1,10 +1,24 @@
 
+// Copyright 2023 David Guillen Fandos <david@davidgf.net>
+
 #include <string.h>
 #include <stdio.h>
 
 #include "test-utils.h"
+#include "exception-module/exception_info.h"
 
-// Test some non-VFPU instructions that are Allegrex specific.
+// This tests cover core MIPS Allegrex specific instructions and features
+// that are not part of the VFPU coprocessor.
+//
+// It covers the following instructions:
+// - max, min, wsbw, wsbh, bitrev, ins, ext
+// - clo, clz, seb, seh, madd/u, msub/u
+// And also the lack of MIPS2 instructions:
+// - teq, tne, tlt, tge, tltu, tgeu
+// - teqi, tnei, tlti, tgei, tltui, tgeui
+//
+// Tests also cover the following features:
+// - mul/div and mflo/mfhi interlocks
 
 #define FILL_ERR(errmsg, v, ve)  \
 {                                \
@@ -54,6 +68,32 @@
 		return ret.u64;                                                       \
 	}
 
+#define _check_illegal_inst(instr) {                                          \
+  /* Setup exception */                                                       \
+  memset(ecb, 0, sizeof(*ecb));                                               \
+  ecb->magic[0] = MAGIC_VAL_1;                                                \
+  ecb->magic[1] = MAGIC_VAL_2;                                                \
+  ecb->magic[2] = MAGIC_VAL_3;                                                \
+  ecb->magic[3] = MAGIC_VAL_4;                                                \
+  ecb->armed    = 1;                                                          \
+  asm volatile(                                                               \
+    "la $v0, 1f\n"                                                            \
+    "sw $v0, 0(%0)\n"                                                         \
+    "nop; nop; nop\n"                                                         \
+    "1:\n " instr "\n"                                                        \
+    "nop; nop; nop; nop\n"                                                    \
+  ::"r"(&ecb->expected_epc) : "$v0", "memory");                               \
+  ecb->armed    = 0;   /* Disable exception catcher */                        \
+  /* Validate that the exception did indeed occur */                          \
+  if (ecb->exception_count != 1)                                              \
+    FILL_ERR("Illegal instruction exception not raised! " instr,              \
+                                                 ecb->exception_count, 1);    \
+  /* Ensure it is an invalid instruction type */                              \
+  unsigned extype = GET_EX_CAUSE(ecb->state.cause);                           \
+  if (extype != EX_ILLEGAL_INST)                                              \
+    FILL_ERR("Invalid exception raised! " instr, extype, EX_ILLEGAL_INST);    \
+}
+
 _unary_op_ext_templ(3, 9)
 _unary_op_ins_templ(3, 9)
 _unary_op_ext_templ(8, 11)
@@ -97,7 +137,7 @@ uint32_t _asm_impl_movn(uint32_t baseval, uint32_t overval, uint32_t sel) {
 }
 
 
-int check_allegrex_insts(struct check_error_info *errs) {
+int check_allegrex_insts(struct check_error_info *errs, exception_control_block *ecb) {
 	int errcnt = 0;
 
 	// Test PSP specific instructions: wsbw, bitrev, max, min
@@ -389,6 +429,92 @@ int check_allegrex_insts(struct check_error_info *errs) {
 			if (v != test_data[i][2])
 				FILL_ERR("ins8,11 test mismatch!", v, test_data[i][2]);
 		}
+	}
+
+	// Demonstrate the existance of hi/lo interlocks for mflo/mfhi
+	{
+		const uint32_t test_data[][4] = {
+			{0x00000000, 0x00001234, 0x00000000, 0x00000000},
+			{0x000007d4, 0x000007db, 0x003d7e5c, 0x00000000},
+			{0x5a5a5a5a, 0x87654321, 0x66cd339a, 0x2fc962fc},
+			{0xffffffff, 0xffffffff, 0x00000001, 0xfffffffe},
+		};
+		// We repeat a bunch of times to prove we didn't "get lucky"
+		for (unsigned rep = 0; rep < 128; rep++) {
+			for (unsigned i = 0; i < 4; i++) {
+				uint32_t reslo;
+				asm volatile(
+					"multu %1, %2; mflo %0\n"
+				:"=r"(reslo) : "r"(test_data[i][0]), "r"(test_data[i][1]));
+				if (reslo != test_data[i][2]) {
+					FILL_ERR("multu / mflo interlock failed!", reslo, test_data[i][2]);
+					break;
+				}
+			}
+			for (unsigned i = 0; i < 4; i++) {
+				uint32_t reshi;
+				asm volatile(
+					"multu %1, %2; mfhi %0\n"
+				:"=r"(reshi) : "r"(test_data[i][0]), "r"(test_data[i][1]));
+				if (reshi != test_data[i][3]) {
+					FILL_ERR("multu / mfhi interlock failed!", reshi, test_data[i][3]);
+					break;
+				}
+			}
+		}
+	}
+	{ // Repeat for divu
+		const uint32_t test_data[][4] = {
+			{0x0deadf00, 0x00000123, 0x000c3e58, 0x000000f8},
+			{0x0f00d101, 0x000fa7db, 0x000000f5, 0x00052c6a},
+			{0x5a5a5a5a, 0xffffffff, 0x00000000, 0x5a5a5a5a},
+			{0x04444440, 0x00000010, 0x00444444, 0x00000000},
+		};
+		for (unsigned rep = 0; rep < 128; rep++) {
+			for (unsigned i = 0; i < 4; i++) {
+				uint32_t reslo;
+				asm volatile(
+					"divu %1, %2; mflo %0\n"
+				:"=r"(reslo) : "r"(test_data[i][0]), "r"(test_data[i][1]));
+				if (reslo != test_data[i][2]) {
+					FILL_ERR("divu / mflo interlock failed!", reslo, test_data[i][2]);
+					break;
+				}
+			}
+			for (unsigned i = 0; i < 4; i++) {
+				uint32_t reshi;
+				asm volatile(
+					"divu %1, %2; mfhi %0\n"
+				:"=r"(reshi) : "r"(test_data[i][0]), "r"(test_data[i][1]));
+				if (reshi != test_data[i][3]) {
+					FILL_ERR("divu / mfhi interlock failed!", reshi, test_data[i][3]);
+					break;
+				}
+			}
+		}
+	}
+
+	if (ecb) {
+		// Test the lack of trap instructions (MIPS 2).
+		_check_illegal_inst("teq $0, $0");
+		_check_illegal_inst("teq $0, $0, 7");
+		_check_illegal_inst("tne $0, $0");
+		_check_illegal_inst("tne $0, $0, 7");
+		_check_illegal_inst("tlt $0, $0");
+		_check_illegal_inst("tlt $0, $0, 7");
+		_check_illegal_inst("tge $0, $0");
+		_check_illegal_inst("tge $0, $0, 7");
+		_check_illegal_inst("tltu $0, $0");
+		_check_illegal_inst("tltu $0, $0, 7");
+		_check_illegal_inst("tgeu $0, $0");
+		_check_illegal_inst("tgeu $0, $0, 7");
+
+		_check_illegal_inst("teqi $0, 0x1234");
+		_check_illegal_inst("tnei $0, 0x1234");
+		_check_illegal_inst("tlti $0, 0x1234");
+		_check_illegal_inst("tgei $0, 0x1234");
+		_check_illegal_inst("tltiu $0, 0x1234");
+		_check_illegal_inst("tgeiu $0, 0x1234");
 	}
 
 	return errcnt;

@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #include "test-utils.h"
-
+#include "exception-module/exception_info.h"
 
 static struct {
   // We do 16 experiments (16 different alignments)
@@ -62,7 +62,7 @@ static void test_unaligned_loads() {
 
 		// Advance to the next unaligment
 		"addiu $s3, $s3, 64*32*4\n"
-		"addiu $s4, $s4, 4\n"
+		"addiu $s4, $s4, 4\n"       // 4 bytes increment
 		"li $a0, 64\n"
 		"bne $a0, $s4, 100b\n"
 		"nop\n"
@@ -348,4 +348,47 @@ int check_unaligned_vfpu_memops(struct check_error_info *errs) {
 	return errcnt;
 }
 
+// Validates that lv.q/sv.q instructions require 16 byte aligned addresses.
+// Otherwise they do generate an exception.
+
+#define _check_unaligned_access(instr, refptr, enumber) {                     \
+  /* Setup exception */                                                       \
+  memset(ecb, 0, sizeof(*ecb));                                               \
+  ecb->magic[0] = MAGIC_VAL_1;                                                \
+  ecb->magic[1] = MAGIC_VAL_2;                                                \
+  ecb->magic[2] = MAGIC_VAL_3;                                                \
+  ecb->magic[3] = MAGIC_VAL_4;                                                \
+  ecb->armed    = 1;                                                          \
+  asm volatile(                                                               \
+    "la $v0, 1f\n"                                                            \
+    "sw $v0, 0(%0)\n"                                                         \
+    "nop; nop; nop\n"                                                         \
+    "1:\n " instr "\n"                                                        \
+    "nop; nop; nop; nop\n"                                                    \
+  ::"r"(&ecb->expected_epc), "r"((refptr)) : "$v0", "memory");                \
+  ecb->armed    = 0;   /* Disable exception catcher */                        \
+  /* Validate that the exception did indeed occur */                          \
+  if (ecb->exception_count != 1)                                              \
+    FILL_ERR("Unaligned memory access not raised! " instr,                    \
+                                                 ecb->exception_count, 1);    \
+  /* Ensure it is an invalid instruction type */                              \
+  unsigned extype = GET_EX_CAUSE(ecb->state.cause);                           \
+  if (extype != enumber)                                                      \
+    FILL_ERR("Invalid exception raised! " instr, extype, enumber);            \
+}
+
+int check_aligned_vfpu_memops_exception(struct check_error_info *errs,
+                                        exception_control_block *ecb) {
+	int errcnt = 0;
+	if (!ecb)
+		return 0;
+
+	char *bufptr = (char*)tmpbuf;
+	for (unsigned unal = 1; unal < 16; unal++)
+		_check_unaligned_access("lv.q R000, 0(%1)", &bufptr[unal], EX_MEM_ADD_LD_ERR);
+	for (unsigned unal = 1; unal < 16; unal++)
+		_check_unaligned_access("sv.q R000, 0(%1)", &bufptr[unal], EX_MEM_ADD_ST_ERR);
+
+	return errcnt;
+}
 

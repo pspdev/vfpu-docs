@@ -43,6 +43,7 @@ psptests:
 	+make -C psp-tests/accuracy $(MAKEFLAGS) all
 	+make -C psp-tests/performance $(MAKEFLAGS) all
 	+make -C psp-tests/regcompat $(MAKEFLAGS) all
+	+make -C psp-tests/manual/exception-module all
 
 .PHONY: psptests-clean
 psptests-clean:
@@ -51,6 +52,7 @@ psptests-clean:
 	make -C psp-tests/accuracy clean
 	make -C psp-tests/performance clean
 	make -C psp-tests/regcompat clean
+	make -C psp-tests/manual/exception-module clean
 
 .PHONY: psptests-pbp-pack
 psptests-pbp-pack:
@@ -60,5 +62,6 @@ psptests-pbp-pack:
 		psp-tests/functional/EBOOT.PBP \
 		psp-tests/accuracy/EBOOT.PBP \
 		psp-tests/performance/EBOOT.PBP \
-		psp-tests/regcompat/EBOOT.PBP
+		psp-tests/regcompat/EBOOT.PBP \
+		psp-tests/manual/exception-module/exception_module.prx
 

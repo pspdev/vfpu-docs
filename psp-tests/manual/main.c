@@ -11,8 +11,11 @@
 
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <inttypes.h>
 
 #include "test-utils.h"
+#include "exception-module/exception_info.h"
 
 #define MIN(x,y) (((x) < (y)) ? (x) : (y))
 #define MAX_TESTS  512
@@ -33,7 +36,9 @@ int validate_ccregs(struct check_error_info *);
 int assert_vhtfm_bugs(struct test_error_info *);
 int check_unaligned_vfpu_load_bug(struct check_error_info *errs, int is_fat);
 int check_unaligned_vfpu_memops(struct check_error_info *errs);
-int check_allegrex_insts(struct check_error_info *errs);
+int check_aligned_vfpu_memops_exception(struct check_error_info *errs,
+                                        exception_control_block *ecb);
+int check_allegrex_insts(struct check_error_info *errs, exception_control_block *ecb);
 
 unsigned read_vfpu_cc_reg() {
 	unsigned ret;
@@ -61,6 +66,11 @@ void print_error_info(const struct test_error_info *einfo) {
 	logprintf("\n");
 }
 
+exception_control_block ctrl_block;
+void *mod_args[1] = {
+	&ctrl_block,
+};
+
 int main() {
 	int pspmod = kuKernelGetModel();
 	int isfat = pspmod == 0;
@@ -79,12 +89,36 @@ int main() {
 	// Disable division exceptions to compare easily
 	pspFpuSetEnable(0);
 
+	// Try to load the exception catche module
+	exception_control_block *ecb = NULL;
+	SceKernelLMOption opts;
+	memset(&opts, 0, sizeof(opts));
+	opts.size = sizeof(opts);
+	opts.mpidtext = PSP_MEMORY_PARTITION_KERNEL;
+	opts.mpiddata = PSP_MEMORY_PARTITION_KERNEL;
+	opts.position = 0;
+	opts.access = 1;
+	int module_id = sceKernelLoadModule("exception_module.prx", 0, &opts);
+	if (module_id < 0)
+		module_id = sceKernelLoadModule("exception-module/exception_module.prx", 0, &opts);
+
+	if (module_id < 0) {
+		logprintf("[!!!] Could not load exception_module.prx kernel module. Some tests will be skipped!\n");
+	} else {
+		ecb = &ctrl_block;
+		int ldstat = 0;
+		sceKernelStartModule(module_id, sizeof(mod_args), mod_args, &ldstat, 0);
+	}
+
 	// Check MIPS allegrex instructions
-	int checkcnt = check_allegrex_insts(check_info);
+	int checkcnt = check_allegrex_insts(check_info, ecb);
+
 	// Run validation tests for CC
 	checkcnt += validate_ccregs(&check_info[checkcnt]);
 	// Validate regular functioning of VFPU unaligned instructions
 	checkcnt += check_unaligned_vfpu_memops(&check_info[checkcnt]);
+	// Validate exception throwing for VFPU aligned instructions
+	checkcnt += check_aligned_vfpu_memops_exception(&check_info[checkcnt], ecb);
 	// Validate memops silicon bugs on FAT models
 	checkcnt += check_unaligned_vfpu_load_bug(&check_info[checkcnt], isfat);
 
