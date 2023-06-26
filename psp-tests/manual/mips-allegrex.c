@@ -19,6 +19,7 @@
 //
 // Tests also cover the following features:
 // - mul/div and mflo/mfhi interlocks
+// - mtlo/mthi and mul/div interlocks
 
 #define FILL_ERR(errmsg, v, ve)  \
 {                                \
@@ -434,6 +435,7 @@ int check_allegrex_insts(struct check_error_info *errs, exception_control_block 
 	// Demonstrate the existance of hi/lo interlocks for mflo/mfhi
 	{
 		const uint32_t test_data[][4] = {
+			// OpA / OpB / rlo / rhi
 			{0x00000000, 0x00001234, 0x00000000, 0x00000000},
 			{0x000007d4, 0x000007db, 0x003d7e5c, 0x00000000},
 			{0x5a5a5a5a, 0x87654321, 0x66cd339a, 0x2fc962fc},
@@ -488,6 +490,60 @@ int check_allegrex_insts(struct check_error_info *errs, exception_control_block 
 				:"=r"(reshi) : "r"(test_data[i][0]), "r"(test_data[i][1]));
 				if (reshi != test_data[i][3]) {
 					FILL_ERR("divu / mfhi interlock failed!", reshi, test_data[i][3]);
+					break;
+				}
+			}
+		}
+	}
+
+	// Demonstrate the existance of hi/lo interlocks for mtlo/mthi
+	{
+		const uint32_t test_data[][6] = {
+			// slo, shi, opA, opB, rlo, rhi
+			{0x00001234, 0x5678abcd, 0x00000000, 0x00000000, 0x00001234, 0x5678abcd},
+			{0x01010202, 0x03030404, 0x00012340, 0x00543000, 0xc89d0202, 0x03030463},
+			{0x00111111, 0x88888888, 0x00dead00, 0x00f000d0, 0xe4fda111, 0x8889594a},
+			{0xffffffff, 0xffffeeee, 0xfe000000, 0x88f00000, 0xffffffff, 0x87de0eee},
+		};
+		// We repeat a bunch of times to prove we didn't "get lucky"
+		for (unsigned rep = 0; rep < 128; rep++) {
+			for (unsigned i = 0; i < 4; i++) {
+				uint32_t reslo, reshi;
+				asm volatile(
+					"mthi %3\n"
+					"mtlo %2\n"
+					"maddu %4, %5\n"
+					"mflo %0\n"
+					"mfhi %1\n"
+				: "=r"(reslo), "=r"(reshi)
+				: "r"(test_data[i][0]), "r"(test_data[i][1]), "r"(test_data[i][2]), "r"(test_data[i][3]));
+
+				if (reslo != test_data[i][4]) {
+					FILL_ERR("mtlo -> maddu interlock failed for LO!", reslo, test_data[i][4]);
+					break;
+				}
+				if (reshi != test_data[i][5]) {
+					FILL_ERR("mtlo -> maddu interlock failed for HI!", reshi, test_data[i][5]);
+					break;
+				}
+			}
+			for (unsigned i = 0; i < 4; i++) {
+				uint32_t reslo, reshi;
+				asm volatile(
+					"mtlo %2\n"
+					"mthi %3\n"
+					"maddu %4, %5\n"
+					"mflo %0\n"
+					"mfhi %1\n"
+				: "=r"(reslo), "=r"(reshi)
+				: "r"(test_data[i][0]), "r"(test_data[i][1]), "r"(test_data[i][2]), "r"(test_data[i][3]));
+
+				if (reslo != test_data[i][4]) {
+					FILL_ERR("mthi -> maddu interlock failed!", reslo, test_data[i][4]);
+					break;
+				}
+				if (reshi != test_data[i][5]) {
+					FILL_ERR("mthi -> maddu interlock failed!", reshi, test_data[i][5]);
 					break;
 				}
 			}

@@ -39,6 +39,7 @@ int check_unaligned_vfpu_memops(struct check_error_info *errs);
 int check_aligned_vfpu_memops_exception(struct check_error_info *errs,
                                         exception_control_block *ecb);
 int check_allegrex_insts(struct check_error_info *errs, exception_control_block *ecb);
+int check_allegrex_fpu(struct check_error_info *errs);
 
 unsigned read_vfpu_cc_reg() {
 	unsigned ret;
@@ -121,6 +122,8 @@ int main() {
 	checkcnt += check_aligned_vfpu_memops_exception(&check_info[checkcnt], ecb);
 	// Validate memops silicon bugs on FAT models
 	checkcnt += check_unaligned_vfpu_load_bug(&check_info[checkcnt], isfat);
+	// Validate FPU instructions too
+	checkcnt += check_allegrex_fpu(&check_info[checkcnt]);
 
 	// Check comparison and branch instructions
 	int nerrs = check_conditionals(&err_info[0]);
