@@ -166,6 +166,101 @@ int check_allegrex_fpu(struct check_error_info *errs) {
 		}
 	}
 
+	// Validate mfc1 hazards. Instructions immediately following an mfc1
+	// can read the destination register of said mfc1.
+	{
+		for (unsigned ntest = 0; ntest < NUM_RND_TESTS; ntest++) {
+			uint32_t gprd1, gprd2;
+			union {
+				float f32;
+				uint32_t u32;
+			} realres;
+			asm volatile (
+				".set noreorder\n"
+				"add.s %2, %3, %4\n"
+				"mfc1 $v0, %2\n"
+				"move %0, $v0\n"
+				"move %1, $v0\n"
+			: "=r"(gprd1), "=r"(gprd2), "=f"(realres.f32)
+			: "f"(opa[ntest]), "f"(opb[ntest]) : "$v0");
+
+			if (realres.u32 != gprd1) {
+				FILL_ERR("mfc1 GPR[rt] presents a 1 cycle hazard!", gprd1, realres.u32);
+				break;
+			}
+			if (realres.u32 != gprd2) {
+				FILL_ERR("mfc1 GPR[rt] presents a 2 cycle hazard!", gprd2, realres.u32);
+				break;
+			}
+		}
+	}
+
+	// Validate mtc1 hazards. Instructions immediately following an mtc1
+	// can read the newly written value. The pipeline has proper interlocks.
+	{
+		for (unsigned ntest = 0; ntest < NUM_RND_TESTS; ntest++) {
+			union {
+				float f32;
+				uint32_t u32;
+			} fr1[NUM_RND_TESTS], fr2[NUM_RND_TESTS];
+
+			asm volatile (
+				".set noreorder\n"
+				"mtc1 %1, $f1\n"
+				"mtc1 %2, $f2\n"
+				"add.s %0, $f2, $f1\n"
+			: "=f"(fr1[ntest].f32)
+			: "r"(opa[ntest]), "r"(opb[ntest]) : "$f1", "$f2");
+
+			asm volatile (
+				".set noreorder\n"
+				"mtc1 %1, $f1\n"
+				"mtc1 %2, $f2\n"
+				"nop; nop; nop; nop\n"
+				"add.s %0, $f2, $f1\n"
+			: "=f"(fr2[ntest].f32)
+			: "r"(opa[ntest]), "r"(opb[ntest]) : "$f1", "$f2");
+
+			if (fr1[ntest].u32 != fr2[ntest].u32) {
+				FILL_ERR("mtc1 FPR[fs] presents a 1 cycle hazard!", fr1[ntest].u32, fr2[ntest].u32);
+				break;
+			}
+		}
+	}
+
+	// Validate lwc1 hazards. Instructions immediately following an lwc1
+	// can read the newly written value. The pipeline has proper interlocks.
+	{
+		for (unsigned ntest = 0; ntest < NUM_RND_TESTS; ntest++) {
+			union {
+				float f32;
+				uint32_t u32;
+			} fr1[NUM_RND_TESTS], fr2[NUM_RND_TESTS];
+
+			asm volatile (
+				".set noreorder\n"
+				"lwc1 $f1, (%1)\n"
+				"lwc1 $f2, (%2)\n"
+				"add.s %0, $f2, $f1\n"
+			: "=f"(fr1[ntest].f32)
+			: "r"(&opa[ntest]), "r"(&opb[ntest]) : "$f1", "$f2");
+
+			asm volatile (
+				".set noreorder\n"
+				"lwc1 $f1, (%1)\n"
+				"lwc1 $f2, (%2)\n"
+				"nop; nop; nop; nop\n"
+				"add.s %0, $f2, $f1\n"
+			: "=f"(fr2[ntest].f32)
+			: "r"(&opa[ntest]), "r"(&opb[ntest]) : "$f1", "$f2");
+
+			if (fr1[ntest].u32 != fr2[ntest].u32) {
+				FILL_ERR("lwc1 FPR[fs] presents a 1 cycle hazard!", fr1[ntest].u32, fr2[ntest].u32);
+				break;
+			}
+		}
+	}
+
 	return errcnt;
 }
 
