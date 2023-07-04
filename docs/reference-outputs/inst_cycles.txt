@@ -1,6 +1,16 @@
 # This is the output of the instruction perf test
 # (run by davidgfnet on a PSP-3000)
 
+>>>>>>> Compare/Branch instruction performance tests <<<<<<
+bvt latency: 4.069626
+bvf latency: 4.067561
+bvtl latency: 4.066847
+bvfl latency: 4.066053
+j latency: 3.054025
+beq latency: 4.067164
+vcmp latency: 8.115432
+
+>>>>>>> VFPU instruction performance tests <<<<<<
 vadd.s: 1.027430 cycles/inst 5.061050 latency
 vadd.p: 1.031479 cycles/inst 5.055413 latency
 vadd.t: 1.031638 cycles/inst 5.057874 latency
