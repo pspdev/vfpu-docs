@@ -10,6 +10,22 @@ j latency: 3.054025
 beq latency: 4.067164
 vcmp latency: 8.115432
 
+>>>>>>> FPU instruction performance tests <<<<<<
+add.s throughput: 1.031241
+mul.s throughput: 1.031003
+div.s throughput: 30.264521
+sqrt.s throughput: 29.262577
+add.s latency: 5.046085
+mul.s latency: 5.051007
+div.s latency: 31.268133
+sqrt.s latency: 30.259201
+
+>>>>>>> ALU instruction performance tests <<<<<<
+mult throughput: 1.028541
+div throughput: 20.247774
+mult latency: 7.082684
+div latency: 21.254801
+
 >>>>>>> VFPU instruction performance tests <<<<<<
 vadd.s: 1.027430 cycles/inst 5.061050 latency
 vadd.p: 1.031479 cycles/inst 5.055413 latency

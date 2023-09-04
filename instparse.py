@@ -6,7 +6,7 @@
 
 import yaml, ast, copy, re
 
-rdesc = yaml.load(open("inst-desc.yaml", "r"), Loader=yaml.Loader)
+rdesc = yaml.load(open("inst-vfpu-desc.yaml", "r"), Loader=yaml.Loader)
 
 def safe_eval(expr, instwidth):
 	if isinstance(expr, int):

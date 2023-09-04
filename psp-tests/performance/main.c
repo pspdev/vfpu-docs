@@ -38,6 +38,78 @@ void perf_tests();
 	"beq $0, $0, 2f\n" \
 	"nop; nop; nop; nop; nop; nop; nop; nop; nop; 2:\n"
 
+#define FPU_ADD8()            \
+	"add.s $f3,  $f1, $f2\n" "add.s $f4,  $f1, $f2\n"  \
+	"add.s $f5,  $f1, $f2\n" "add.s $f6,  $f1, $f2\n"  \
+	"add.s $f7,  $f1, $f2\n" "add.s $f8,  $f1, $f2\n"  \
+	"add.s $f9,  $f1, $f2\n" "add.s $f10, $f1, $f2\n"
+
+#define FPU_MUL8()            \
+	"mul.s $f3,  $f1, $f2\n" "mul.s $f4,  $f1, $f2\n"  \
+	"mul.s $f5,  $f1, $f2\n" "mul.s $f6,  $f1, $f2\n"  \
+	"mul.s $f7,  $f1, $f2\n" "mul.s $f8,  $f1, $f2\n"  \
+	"mul.s $f9,  $f1, $f2\n" "mul.s $f10, $f1, $f2\n"
+
+#define FPU_DIV8()    \
+	"div.s $f3,  $f1, $f2\n" "div.s $f4,  $f1, $f2\n"  \
+	"div.s $f5,  $f1, $f2\n" "div.s $f6,  $f1, $f2\n"  \
+	"div.s $f7,  $f1, $f2\n" "div.s $f8,  $f1, $f2\n"  \
+	"div.s $f9,  $f1, $f2\n" "div.s $f10, $f1, $f2\n"
+
+#define FPU_SQR8()    \
+	"sqrt.s $f3,  $f1\n" "sqrt.s $f4,  $f1\n"  \
+	"sqrt.s $f5,  $f1\n" "sqrt.s $f6,  $f1\n"  \
+	"sqrt.s $f7,  $f1\n" "sqrt.s $f8,  $f1\n"  \
+	"sqrt.s $f9,  $f1\n" "sqrt.s $f10, $f1\n"
+
+#define FPU_ADD8_L()            \
+	"add.s $f3, $f1, $f2\n" "add.s $f4, $f1, $f3\n"  \
+	"add.s $f5, $f1, $f4\n" "add.s $f6, $f1, $f5\n"  \
+	"add.s $f7, $f1, $f6\n" "add.s $f8, $f1, $f7\n"  \
+	"add.s $f9, $f1, $f8\n" "add.s $f2, $f1, $f9\n"
+
+#define FPU_MUL8_L()            \
+	"mul.s $f3, $f1, $f2\n" "mul.s $f4, $f1, $f3\n"  \
+	"mul.s $f5, $f1, $f4\n" "mul.s $f6, $f1, $f5\n"  \
+	"mul.s $f7, $f1, $f6\n" "mul.s $f8, $f1, $f7\n"  \
+	"mul.s $f9, $f1, $f8\n" "mul.s $f2, $f1, $f9\n"
+
+#define FPU_DIV8_L()            \
+	"div.s $f3, $f1, $f2\n" "div.s $f4, $f1, $f3\n"  \
+	"div.s $f5, $f1, $f4\n" "div.s $f6, $f1, $f5\n"  \
+	"div.s $f7, $f1, $f6\n" "div.s $f8, $f1, $f7\n"  \
+	"div.s $f9, $f1, $f8\n" "div.s $f2, $f1, $f9\n"
+
+#define FPU_SQR8_L()    \
+	"sqrt.s $f3, $f1\n" "sqrt.s $f4, $f3\n"  \
+	"sqrt.s $f5, $f4\n" "sqrt.s $f6, $f5\n"  \
+	"sqrt.s $f7, $f6\n" "sqrt.s $f8, $f7\n"  \
+	"sqrt.s $f9, $f8\n" "sqrt.s $f1, $f9\n"
+
+#define ALU_MUL8()            \
+	"mult $t0, $t1\n" "mult $t0, $t1\n"  \
+	"mult $t0, $t1\n" "mult $t0, $t1\n"  \
+	"mult $t0, $t1\n" "mult $t0, $t1\n"  \
+	"mult $t0, $t1\n" "mult $t0, $t1\n"
+
+#define ALU_DIV8()            \
+	"div $t0, $t1\n" "div $t0, $t1\n"  \
+	"div $t0, $t1\n" "div $t0, $t1\n"  \
+	"div $t0, $t1\n" "div $t0, $t1\n"  \
+	"div $t0, $t1\n" "div $t0, $t1\n"
+
+#define ALU_MUL8_L()            \
+	"mult $t0, $t1\n" "mflo $t2\n" "mult $t0, $t1\n" "mflo $t3\n" \
+	"mult $t0, $t1\n" "mflo $t4\n" "mult $t0, $t1\n" "mflo $t5\n" \
+	"mult $t0, $t1\n" "mflo $t6\n" "mult $t0, $t1\n" "mflo $t7\n" \
+	"mult $t0, $t1\n" "mflo $t8\n" "mult $t0, $t1\n" "mflo $t9\n"
+
+#define ALU_DIV8_L()            \
+	"div $t0, $t1\n" "mflo $t2\n" "div $t0, $t1\n" "mflo $t3\n" \
+	"div $t0, $t1\n" "mflo $t4\n" "div $t0, $t1\n" "mflo $t5\n" \
+	"div $t0, $t1\n" "mflo $t6\n" "div $t0, $t1\n" "mflo $t7\n" \
+	"div $t0, $t1\n" "mflo $t8\n" "div $t0, $t1\n" "mflo $t9\n"
+
 #define VCMP_B()     \
 	"vcmp.q NE, R000.q, R000.q\n"   \
 	"bvt 0, 1b\n nop\n" \
@@ -78,6 +150,51 @@ void * membuf[MAX_BUF_SIZE] __attribute__((aligned(16)));   // 4MiB buffer
 
 inline uint32_t rand24() {
 	return rand() ^ (rand() << 8);
+}
+
+#define TIME_FPU(INST_MACRO, metric, iname)                                   \
+{                                                                             \
+  int64_t stt = sceKernelGetSystemTimeWide();                                 \
+  asm volatile(                                                               \
+    ".set noreorder\n"                                                        \
+    "la $a3, 0x3f800000\n" /* 1.0f */                                         \
+    "mtc1 $a3, $f1\n"                                                         \
+    "mtc1 $a3, $f2\n"                                                         \
+    "li $a3, 16384\n"                                                         \
+    "1: \n"                                                                   \
+    REP8(INST_MACRO) REP8(INST_MACRO)                                         \
+    REP8(INST_MACRO) REP8(INST_MACRO)                                         \
+    "sub $a3, $a3, 1\n"                                                       \
+    "bnez $a3, 1b\n nop \n"                                                   \
+    ".set reorder\n"                                                          \
+  ::: "$a3", "$f1", "$f2", "$f3", "$f4", "$f5", "$f6",                        \
+      "$f7", "$f8", "$f9", "$f10", "memory");                                 \
+  uint64_t end = sceKernelGetSystemTimeWide();                                \
+  unsigned cyclt = (unsigned)(end - stt) * 333;                               \
+  logprintf("%s %s: %f\n", iname, metric,                                     \
+            cyclt / (float)(256 * 16384));                                    \
+}
+
+#define TIME_ALU(INST_MACRO, metric, iname)                                   \
+{                                                                             \
+  uint64_t stt = sceKernelGetSystemTimeWide();                                \
+  asm volatile(                                                               \
+    ".set noreorder\n"                                                        \
+    "la $t0, 0x1eadc0fe\n"                                                    \
+    "la $t1, 0xf00df00d\n"                                                    \
+    "li $a3, 16384\n"                                                         \
+    "1: \n"                                                                   \
+    REP8(INST_MACRO) REP8(INST_MACRO)                                         \
+    REP8(INST_MACRO) REP8(INST_MACRO)                                         \
+    "sub $a3, $a3, 1\n"                                                       \
+    "bnez $a3, 1b\n nop \n"                                                   \
+    ".set reorder\n"                                                          \
+  ::: "$a3", "$t0", "$t1", "$t2", "$t3", "$t4", "$t5",                        \
+      "$t6", "$t7", "$t8", "$t9", "memory");                                  \
+  uint64_t end = sceKernelGetSystemTimeWide();                                \
+  unsigned cyclt = (unsigned)(end - stt) * 333;                               \
+  logprintf("%s %s: %f\n", iname, metric,                                     \
+            cyclt / (float)(256 * 16384));                                    \
 }
 
 int main() {
@@ -228,6 +345,27 @@ int main() {
 		// Remote 1 cycle for branch, 1 for nop
 		logprintf("vcmp latency: %f\n", cyclt / (float)(256 * 16384) - 2);
 	}
+
+	logprintf(">>>>>>> FPU instruction performance tests <<<<<<\n");
+
+	// Calculate FPU throughput and latency for FPU instructions
+	TIME_FPU(FPU_ADD8, "throughput", "add.s");
+	TIME_FPU(FPU_MUL8, "throughput", "mul.s");
+	TIME_FPU(FPU_DIV8, "throughput", "div.s");
+	TIME_FPU(FPU_SQR8, "throughput", "sqrt.s");
+
+	TIME_FPU(FPU_ADD8_L, "latency", "add.s");
+	TIME_FPU(FPU_MUL8_L, "latency", "mul.s");
+	TIME_FPU(FPU_DIV8_L, "latency", "div.s");
+	TIME_FPU(FPU_SQR8_L, "latency", "sqrt.s");
+
+	logprintf(">>>>>>> ALU instruction performance tests <<<<<<\n");
+
+	TIME_ALU(ALU_MUL8, "throughput", "mult");
+	TIME_ALU(ALU_DIV8, "throughput", "div");
+
+	TIME_ALU(ALU_MUL8_L, "latency", "mult");
+	TIME_ALU(ALU_DIV8_L, "latency", "div");
 
 	logprintf(">>>>>>> Memory latency performance tests <<<<<<\n");
 
