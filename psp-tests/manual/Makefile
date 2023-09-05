@@ -1,5 +1,5 @@
 TARGET = vfpu-manual-tests
-OBJS = main.o ../test-utils.o test-conditional.o ieee754-fun.o vfpu-cc.o vfpu-bugs.o memops.o memops-helper.o mips-allegrex.o fp-unit.o
+OBJS = main.o ../test-utils.o test-conditional.o ieee754-fun.o vfpu-cc.o vfpu-bugs.o memops.o memops-helper.o mips-allegrex.o fp-unit.o undefined-behaviour.o
 
 INCDIR = ../
 CFLAGS = -Wall -ggdb -O2

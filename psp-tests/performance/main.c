@@ -34,8 +34,19 @@ void perf_tests();
 	"j 2f\n"         \
 	"nop; nop; nop; nop; nop; nop; nop; nop; nop; 2:\n"
 
+// This recalculates the next jump address in the delay slot
+// to avoid data dependecies between instructions.
+#define JUMP_JR()    \
+	"jr $t0\n"       \
+	"addiu $t0, $t0, 10*4\n" \
+	"nop; nop; nop; nop; nop; nop; nop; nop; 2:\n"
+
 #define JUMP_BEQ()     \
 	"beq $0, $0, 2f\n" \
+	"nop; nop; nop; nop; nop; nop; nop; nop; nop; 2:\n"
+
+#define JUMP_BGEZAL()     \
+	"bgezal $0, 2f\n"    \
 	"nop; nop; nop; nop; nop; nop; nop; nop; nop; 2:\n"
 
 #define FPU_ADD8()            \
@@ -310,6 +321,26 @@ int main() {
 		asm volatile(
 			".set noreorder\n"
 			"li $a3, 16384;"
+			"la $t1, 2f\n"
+			"move $t0, $t1\n"
+			"1: \n"
+			REP64(JUMP_JR) REP64(JUMP_JR)
+			REP64(JUMP_JR) REP64(JUMP_JR)
+			"sub $a3, $a3, 1\n"
+			"bnez $a3, 1b\n"
+			"move $t0, $t1\n"   // Reload pointer (delay slot)
+			".set reorder\n"
+		::: "$a3", "$t0", "$t1", "memory");
+		uint64_t end = sceKernelGetSystemTimeWide();
+		unsigned cyclt = (unsigned)(end - stt) * 333;
+		logprintf("jr latency: %f\n", cyclt / (float)(256 * 16384));
+	}
+
+	{
+		uint64_t stt = sceKernelGetSystemTimeWide();
+		asm volatile(
+			".set noreorder\n"
+			"li $a3, 16384;"
 			"1: \n"
 			REP64(JUMP_BEQ) REP64(JUMP_BEQ)
 			REP64(JUMP_BEQ) REP64(JUMP_BEQ)
@@ -320,6 +351,23 @@ int main() {
 		uint64_t end = sceKernelGetSystemTimeWide();
 		unsigned cyclt = (unsigned)(end - stt) * 333;
 		logprintf("beq latency: %f\n", cyclt / (float)(256 * 16384));
+	}
+
+	{
+		uint64_t stt = sceKernelGetSystemTimeWide();
+		asm volatile(
+			".set noreorder\n"
+			"li $a3, 16384;"
+			"1: \n"
+			REP64(JUMP_BGEZAL) REP64(JUMP_BGEZAL)
+			REP64(JUMP_BGEZAL) REP64(JUMP_BGEZAL)
+			"sub $a3, $a3, 1\n"
+			"bnez $a3, 1b\n nop \n"
+			".set reorder\n"
+		::: "$a3", "memory", "$ra");
+		uint64_t end = sceKernelGetSystemTimeWide();
+		unsigned cyclt = (unsigned)(end - stt) * 333;
+		logprintf("bgezal latency: %f\n", cyclt / (float)(256 * 16384));
 	}
 
 	// Calculate vcmp to bvt/f latency

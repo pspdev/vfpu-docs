@@ -40,6 +40,7 @@ int check_aligned_vfpu_memops_exception(struct check_error_info *errs,
                                         exception_control_block *ecb);
 int check_allegrex_insts(struct check_error_info *errs, exception_control_block *ecb);
 int check_allegrex_fpu(struct check_error_info *errs);
+int check_delay_slot_ub(struct test_error_info *errlist);
 
 unsigned read_vfpu_cc_reg() {
 	unsigned ret;
@@ -127,6 +128,8 @@ int main() {
 
 	// Check comparison and branch instructions
 	int nerrs = check_conditionals(&err_info[0]);
+	// Undefined behaviour tests
+	nerrs += check_delay_slot_ub(&err_info[nerrs]);
 	// Run corner cases tests first (NaN, Inf, rounding...)
 	nerrs += check_nans(&err_info[nerrs]);
 	// Validate known bugs and check they are reproducible

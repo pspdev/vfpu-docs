@@ -7,6 +7,7 @@ bvf latency: 4.067561
 bvtl latency: 4.066847
 bvfl latency: 4.066053
 j latency: 3.054025
+jr latency: 3.062282
 beq latency: 4.067164
 vcmp latency: 8.115432
 
