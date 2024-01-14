@@ -63,3 +63,12 @@ readable test files. Tests are generally deterministic to avoid random data
 changing on every build.
 
 
+Licensing clarification
+-----------------------
+
+All sources and documentation are placed under the GPL 3 license unless
+explicitely indicated in the file header. If there's any issue or you would
+like to use certain parts in your project but have some licensing issues,
+feel free to reach out to the original author(s) and contributor(s).
+
+

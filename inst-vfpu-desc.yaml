@@ -1,4 +1,14 @@
 
+# This file was written by David Guillen Fandos <david@davidgf.net>
+#
+# The contents are released into the public domain without any license.
+# I wave all copyright and related rights to the extent allowed by law.
+# You are free to copy, modify, distribute, and perform the work, even for
+# commercial purposes, without asking for permission.
+#
+# I would really appreciate if you kept this header though :)
+
+
 # Instruction prefixes types: s/t/d (for rs, rt and rd operands)
 #  Prefix "S" has a special meaning: rs prefixing is allowed but only for swizzle operations
 #  Prefix "D" has a special meaning: rd prefixing is allowed but only for masking operations
