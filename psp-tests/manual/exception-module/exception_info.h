@@ -34,10 +34,14 @@
 
 #define GET_EX_CAUSE(cause)  (((cause) >> 2) & 31)
 
-#define EX_MEM_ADD_LD_ERR      4
-#define EX_MEM_ADD_ST_ERR      5
-#define EX_MEM_BUS_ERR         7
-#define EX_ILLEGAL_INST       10        // An instruction that's not supported
+// From SMIPS Processor Specification
+#define EX_MEM_ADD_LD_ERR      4        // Address error/misaligned on load
+#define EX_MEM_ADD_ST_ERR      5        // Address error/misaligned on store
+#define EX_MEM_BUS_ERR         7        // Bus error exception
+#define EX_DEBUG_BREAK         9        // Breakpoint
+#define EX_ILLEGAL_INST       10        // Reserved instruction exception
+#define EX_COP_ILLEGAL        11        // Coprocessor Unusable
+#define EX_ARITH_OVERFLOW     12        // Arithmetic overflow
 
 typedef struct {
 	uint32_t cause;

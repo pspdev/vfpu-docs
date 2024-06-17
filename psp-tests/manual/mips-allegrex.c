@@ -20,6 +20,7 @@
 // Tests also cover the following features:
 // - mul/div and mflo/mfhi interlocks
 // - mtlo/mthi and mul/div interlocks
+// - mfhi/mthi interlocks (MIPS I/II/III bug)
 
 #define FILL_ERR(errmsg, v, ve)  \
 {                                \
@@ -548,6 +549,148 @@ int check_allegrex_insts(struct check_error_info *errs, exception_control_block 
 				}
 			}
 		}
+	}
+
+	// Validate that mthi/mfhi have proper interlocks, as per manual:
+	// As per manual:
+	//   Historical Information:
+	//     In MIPS I-III, if either of the two preceding instructions is MFHI,
+	//     the result of that MFHI is UNPREDICTABLE. Reads of the HI or LO
+	//     special register must be separated from any subsequent instructions
+	//     that write to them by two or more instructions. In MIPS IV and
+	//     later, including MIPS32, this restriction does not exist.
+	{
+		const uint32_t test_data[][3] = {
+			// slo, shi, shi-interference
+			{0x00001234, 0x5678abcd, 0xbeefbeef},
+			{0x01010202, 0x03030404, 0xdeadc0de},
+			{0x00111111, 0x88888888, 0xc0ffeba2},
+			{0xffffffff, 0xffffeeee, 0xf00ba5f0},
+		};
+		// We repeat a bunch of times to prove we didn't "get lucky"
+		for (unsigned rep = 0; rep < 128; rep++) {
+			for (unsigned i = 0; i < 4; i++) {
+				uint32_t reshi;
+				asm volatile(
+					".set push\n"
+					".set noreorder\n"
+					"mthi $0; mtlo $0;\n"  // Clear HILO
+					"nop; nop; nop; nop; nop; nop; nop; nop;\n"
+					"nop; nop; nop; nop; nop; nop; nop; nop;\n"
+
+					"mthi %2\n"  // Write some well known data
+					"mtlo %1\n"
+					// Add some pipeline bubble to ensure all previous
+					// instructions are out of the pipeline.
+					"nop; nop; nop; nop; nop; nop; nop; nop;\n"
+					"nop; nop; nop; nop; nop; nop; nop; nop;\n"
+
+					"mfhi %0\n"  // Instruction under test!
+					"mthi %3\n"  // Write some other data, see if it fails.
+					".set pop\n"
+				: "=r"(reshi)
+				: "r"(test_data[i][0]), "r"(test_data[i][1]), "r"(test_data[i][2]));
+
+				if (reshi != test_data[i][1]) {
+					FILL_ERR("mfhi -> mthi interlock failed for HI!", reshi, test_data[i][1]);
+					break;
+				}
+			}
+			for (unsigned i = 0; i < 4; i++) {
+				uint32_t reslo;
+				asm volatile(
+					".set push\n"
+					".set noreorder\n"
+					"mthi $0; mtlo $0;\n"  // Clear HILO
+					"nop; nop; nop; nop; nop; nop; nop; nop;\n"
+					"nop; nop; nop; nop; nop; nop; nop; nop;\n"
+
+					"mthi %2\n"  // Write some well known data
+					"mtlo %1\n"
+					// Add some pipeline bubble to ensure all previous
+					// instructions are out of the pipeline.
+					"nop; nop; nop; nop; nop; nop; nop; nop;\n"
+					"nop; nop; nop; nop; nop; nop; nop; nop;\n"
+					"mflo %0\n"  // Instruction under test!
+					"mtlo %3\n"  // Write some other data, see if it fails.
+					".set pop\n"
+				: "=r"(reslo)
+				: "r"(test_data[i][0]), "r"(test_data[i][1]), "r"(test_data[i][2]));
+
+				if (reslo != test_data[i][0]) {
+					FILL_ERR("mflo -> mtlo interlock failed for LO!", reslo, test_data[i][0]);
+					break;
+				}
+			}
+		}
+	}
+
+	// Validate that exceptions can mess the HI/LO interlocks
+	// Some exception-generating instructions seem to be problematic and cannot
+	// prevent certain instructions from writing HI/LO registers. This seems
+	// to only work for mtlo/mthi, and doesn't work for mul/div, probably due
+	// to their longer latency. Other exception causing instructions seem to
+	// be fine and not trigger this issue!
+	// eret seems to properly flush the pipeline (which is expected)
+	if (ecb) {
+		#define _TEST_HILO_BUG(expect_bug, exception_instr, update_instr,   \
+		                       read_inst, field, expected_cause) {          \
+			uint32_t result = 0;                                            \
+			memset(ecb, 0, sizeof(*ecb));                                   \
+			ecb->magic[0] = MAGIC_VAL_1;                                    \
+			ecb->magic[1] = MAGIC_VAL_2;                                    \
+			ecb->magic[2] = MAGIC_VAL_3;                                    \
+			ecb->magic[3] = MAGIC_VAL_4;                                    \
+			ecb->armed    = 1;                                              \
+			asm volatile(                                                   \
+				".set push\n"                                               \
+				".set noreorder\n"                                          \
+				"la $v1, 0x7FFFFFFF\n"    /* Load overflow value */         \
+				"la $v0, 1f\n"            /* Load expected EPC */           \
+				"sw $v0, 0(%1)\n"                                           \
+				"mthi $0; mtlo $0\n"  /* Clear HI/LO */                     \
+				"nop; nop; nop; nop; nop; nop\n"   /* Pipeline flush */     \
+				"li $v0, 0xc0fe\n"                                          \
+				update_instr " $v0\n"                                       \
+				"li $v0, 0xbaad\n"                                          \
+				"nop; nop; nop; nop; nop; nop\n"                            \
+				"1:\n " exception_instr "\n"                                \
+				update_instr " $v0\n"       /* Not aborted instruction */   \
+				"nop; nop; nop; nop; nop; nop; nop; nop\n"                  \
+				read_inst " %0\n"                                           \
+				".set pop\n"                                                \
+			:"=r"(result)                                                   \
+			: "r"(&ecb->expected_epc)                                       \
+			: "$v0", "$v1", "memory");                                      \
+			                                                                \
+			unsigned extype = GET_EX_CAUSE(ecb->state.cause);               \
+			if (ecb->exception_count != 1)                                  \
+				FILL_ERR("No exception caught!", ecb->exception_count, 1)   \
+			else if (extype != expected_cause)                              \
+				FILL_ERR("Unexpected cause type!", extype, expected_cause)  \
+			else if (result != 0xbaad)                                      \
+				FILL_ERR("Unexpected final Hi/Lo value!", result, 0xbaad)   \
+			else if (expect_bug && ecb->state.field != 0xbaad)              \
+				FILL_ERR("Unexpected (not buggy) captured Hi/Lo value!"     \
+				         exception_instr, ecb->state.field, 0xbaad)         \
+			else if (!expect_bug && ecb->state.field != 0xc0fe)             \
+				FILL_ERR("Unexpected (buggy) captured Hi/Lo value at "      \
+				         exception_instr, ecb->state.field, 0xc0fe)         \
+		}
+
+		// Test buggy exceptions first
+		_TEST_HILO_BUG(1, "break",        "mthi", "mfhi", mhi, EX_DEBUG_BREAK);     // Regular breakpoint
+		_TEST_HILO_BUG(1, "break",        "mtlo", "mflo", mlo, EX_DEBUG_BREAK);
+		_TEST_HILO_BUG(1, "lw $0, 1($0)", "mthi", "mfhi", mhi, EX_MEM_ADD_LD_ERR);  // Invalid alignment
+		_TEST_HILO_BUG(1, "lw $0, 1($0)", "mtlo", "mflo", mlo, EX_MEM_ADD_LD_ERR);
+		_TEST_HILO_BUG(1, "teq $0, $0",   "mthi", "mfhi", mhi, EX_ILLEGAL_INST);    // Invalid inst
+		_TEST_HILO_BUG(1, "teq $0, $0",   "mtlo", "mflo", mlo, EX_ILLEGAL_INST);
+		_TEST_HILO_BUG(1, "add $v1, $v0", "mthi", "mfhi", mhi, EX_ARITH_OVERFLOW);  // Overflow
+		_TEST_HILO_BUG(1, "add $v1, $v0", "mtlo", "mflo", mlo, EX_ARITH_OVERFLOW);
+
+		// Now other exceptions that do *not* cause the bug
+		_TEST_HILO_BUG(0, "eret",         "mthi", "mfhi", mhi, EX_COP_ILLEGAL);     // Cannot run in user mode!
+		_TEST_HILO_BUG(0, "eret",         "mtlo", "mflo", mlo, EX_COP_ILLEGAL);
 	}
 
 	if (ecb) {
