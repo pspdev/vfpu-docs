@@ -109,9 +109,6 @@ class Instruction(object):
 	def outputs(self):
 		return self._opdinfo.outputs()
 
-	def constants(self):
-		return self._opdinfo.constants()
-
 	def syntax(self):
 		return self._opdinfo.syntax().replace("%opcode", self._name)
 
@@ -134,9 +131,6 @@ class OperandInfo(object):
 		self._outputs = {}
 		for iname, itype in opinfo.get("outputs", {}).items():
 			self._outputs[iname] = itype
-		self._constants = {}
-		for iname, opsz in opinfo.get("constants", {}).items():
-			self._constants[iname] = opsz
 
 	def syntax(self):
 		return self._syntax
@@ -149,9 +143,6 @@ class OperandInfo(object):
 
 	def outputs(self):
 		return self._outputs
-
-	def constants(self):
-		return self._constants
 
 	def copy(self):
 		return copy.deepcopy(self)
