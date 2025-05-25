@@ -10,7 +10,7 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get install -y clang-format
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build auto-generated tests
         run: make tests
 

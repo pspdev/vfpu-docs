@@ -20,11 +20,11 @@ jobs:
           sudo apt-get install -y python3-pip python3-mako python3-markdown python3-htmlmin weasyprint make
           sudo pip3 install tatsu
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build documentation
         run: make docs
       - name: Upload assets
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs/output/
 
