@@ -25,9 +25,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e4" ::: "memory");
@@ -59,9 +59,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e4" ::: "memory");
@@ -93,9 +93,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e4" ::: "memory");
@@ -127,9 +127,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e4" ::: "memory");
@@ -161,9 +161,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e4" ::: "memory");
@@ -195,9 +195,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e4" ::: "memory");
@@ -229,9 +229,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e4" ::: "memory");
@@ -263,9 +263,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -297,9 +297,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -331,9 +331,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -365,9 +365,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -399,9 +399,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -433,9 +433,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -467,9 +467,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -501,9 +501,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -535,9 +535,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -569,9 +569,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -603,9 +603,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -637,9 +637,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -671,9 +671,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -705,9 +705,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -739,9 +739,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -773,9 +773,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -807,9 +807,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -841,9 +841,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -875,9 +875,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -909,9 +909,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -943,9 +943,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -977,9 +977,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -1011,9 +1011,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -1045,9 +1045,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -1079,9 +1079,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -1113,9 +1113,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -1147,9 +1147,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -1181,9 +1181,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -1215,9 +1215,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -1249,9 +1249,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -1283,9 +1283,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -1317,9 +1317,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -1351,9 +1351,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -1385,9 +1385,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -1419,9 +1419,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -1453,9 +1453,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -1487,9 +1487,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -1521,9 +1521,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -1555,9 +1555,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -1589,9 +1589,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -1623,9 +1623,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -1657,9 +1657,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -1691,9 +1691,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -1725,9 +1725,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -1759,9 +1759,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -1793,9 +1793,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -1827,9 +1827,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -1861,9 +1861,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -1895,9 +1895,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -1928,9 +1928,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 1);
@@ -1962,9 +1962,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 1);
@@ -1996,9 +1996,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 1);
@@ -2030,9 +2030,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 1);
@@ -2064,9 +2064,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 1);
@@ -2098,9 +2098,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 1);
@@ -2132,9 +2132,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 1);
@@ -2166,9 +2166,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 1);
@@ -2200,9 +2200,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 1);
@@ -2234,9 +2234,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 1);
@@ -2268,9 +2268,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 1);
@@ -2302,9 +2302,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 1);
@@ -2336,9 +2336,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 1);
@@ -2370,9 +2370,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 1);
@@ -2404,9 +2404,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 1);
@@ -2438,9 +2438,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 1);
@@ -2472,9 +2472,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 1);
@@ -2506,9 +2506,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 1);
@@ -2540,9 +2540,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 1);
@@ -2574,9 +2574,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 1);
@@ -2608,9 +2608,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float rd_final[1] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 1);
@@ -2642,9 +2642,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a00010" ::: "memory");
@@ -2675,9 +2675,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a10010" ::: "memory");
@@ -2708,9 +2708,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a20010" ::: "memory");
@@ -2741,9 +2741,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a30010" ::: "memory");
@@ -2774,9 +2774,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a40010" ::: "memory");
@@ -2807,9 +2807,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a50010" ::: "memory");
@@ -2840,9 +2840,9 @@ int run_vcmovt_s(struct test_error_info *errlist,
       asm volatile("mtvc $0, $131;vmzero.q M400");
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a60010" ::: "memory");
@@ -2892,13 +2892,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000c9" ::: "memory");
@@ -2934,13 +2934,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000c9" ::: "memory");
@@ -2976,13 +2976,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000c9" ::: "memory");
@@ -3018,13 +3018,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000c9" ::: "memory");
@@ -3060,13 +3060,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000c9" ::: "memory");
@@ -3102,13 +3102,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000c9" ::: "memory");
@@ -3144,13 +3144,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000c9" ::: "memory");
@@ -3186,13 +3186,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -3228,13 +3228,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -3270,13 +3270,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -3312,13 +3312,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -3354,13 +3354,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -3396,13 +3396,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -3438,13 +3438,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -3480,13 +3480,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -3522,13 +3522,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -3564,13 +3564,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -3606,13 +3606,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -3648,13 +3648,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -3690,13 +3690,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -3732,13 +3732,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -3774,13 +3774,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -3816,13 +3816,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -3858,13 +3858,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -3900,13 +3900,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -3942,13 +3942,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -3984,13 +3984,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -4026,13 +4026,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -4068,13 +4068,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -4110,13 +4110,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -4152,13 +4152,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -4194,13 +4194,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -4236,13 +4236,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -4278,13 +4278,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -4320,13 +4320,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -4362,13 +4362,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -4404,13 +4404,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -4446,13 +4446,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -4488,13 +4488,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -4530,13 +4530,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -4572,13 +4572,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -4614,13 +4614,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -4656,13 +4656,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -4698,13 +4698,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -4740,13 +4740,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -4782,13 +4782,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -4824,13 +4824,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -4866,13 +4866,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -4908,13 +4908,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -4950,13 +4950,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -4992,13 +4992,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -5034,13 +5034,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -5076,13 +5076,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -5118,13 +5118,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -5160,13 +5160,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -5202,13 +5202,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -5243,13 +5243,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 3);
@@ -5285,13 +5285,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 3);
@@ -5327,13 +5327,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 3);
@@ -5369,13 +5369,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 3);
@@ -5411,13 +5411,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 3);
@@ -5453,13 +5453,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 3);
@@ -5495,13 +5495,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 3);
@@ -5537,13 +5537,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 3);
@@ -5579,13 +5579,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 3);
@@ -5621,13 +5621,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 3);
@@ -5663,13 +5663,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 3);
@@ -5705,13 +5705,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 3);
@@ -5747,13 +5747,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 3);
@@ -5789,13 +5789,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 3);
@@ -5831,13 +5831,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 3);
@@ -5873,13 +5873,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 3);
@@ -5915,13 +5915,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 3);
@@ -5957,13 +5957,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 3);
@@ -5999,13 +5999,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 3);
@@ -6041,13 +6041,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 3);
@@ -6083,13 +6083,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float rd_final[3] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 3);
@@ -6125,13 +6125,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a08010" ::: "memory");
@@ -6166,13 +6166,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a18010" ::: "memory");
@@ -6207,13 +6207,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a28010" ::: "memory");
@@ -6248,13 +6248,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a38010" ::: "memory");
@@ -6289,13 +6289,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a48010" ::: "memory");
@@ -6330,13 +6330,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a58010" ::: "memory");
@@ -6371,13 +6371,13 @@ int run_vcmovt_t(struct test_error_info *errlist,
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a68010" ::: "memory");
@@ -6428,11 +6428,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e1" ::: "memory");
@@ -6466,11 +6466,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e1" ::: "memory");
@@ -6504,11 +6504,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e1" ::: "memory");
@@ -6542,11 +6542,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e1" ::: "memory");
@@ -6580,11 +6580,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e1" ::: "memory");
@@ -6618,11 +6618,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e1" ::: "memory");
@@ -6656,11 +6656,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0000e1" ::: "memory");
@@ -6694,11 +6694,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -6732,11 +6732,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -6770,11 +6770,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -6808,11 +6808,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -6846,11 +6846,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -6884,11 +6884,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -6922,11 +6922,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -6960,11 +6960,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -6998,11 +6998,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -7036,11 +7036,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -7074,11 +7074,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -7112,11 +7112,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -7150,11 +7150,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -7188,11 +7188,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -7226,11 +7226,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -7264,11 +7264,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -7302,11 +7302,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -7340,11 +7340,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -7378,11 +7378,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -7416,11 +7416,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -7454,11 +7454,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -7492,11 +7492,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -7530,11 +7530,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -7568,11 +7568,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -7606,11 +7606,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -7644,11 +7644,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -7682,11 +7682,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -7720,11 +7720,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -7758,11 +7758,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -7796,11 +7796,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -7834,11 +7834,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -7872,11 +7872,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -7910,11 +7910,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -7948,11 +7948,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -7986,11 +7986,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -8024,11 +8024,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -8062,11 +8062,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -8100,11 +8100,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -8138,11 +8138,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -8176,11 +8176,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -8214,11 +8214,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -8252,11 +8252,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -8290,11 +8290,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -8328,11 +8328,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -8366,11 +8366,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -8404,11 +8404,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -8442,11 +8442,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -8480,11 +8480,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -8518,11 +8518,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -8555,11 +8555,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 2);
@@ -8593,11 +8593,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 2);
@@ -8631,11 +8631,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 2);
@@ -8669,11 +8669,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 2);
@@ -8707,11 +8707,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 2);
@@ -8745,11 +8745,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 2);
@@ -8783,11 +8783,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 2);
@@ -8821,11 +8821,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 2);
@@ -8859,11 +8859,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 2);
@@ -8897,11 +8897,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 2);
@@ -8935,11 +8935,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 2);
@@ -8973,11 +8973,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 2);
@@ -9011,11 +9011,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 2);
@@ -9049,11 +9049,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 2);
@@ -9087,11 +9087,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 2);
@@ -9125,11 +9125,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 2);
@@ -9163,11 +9163,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 2);
@@ -9201,11 +9201,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 2);
@@ -9239,11 +9239,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 2);
@@ -9277,11 +9277,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 2);
@@ -9315,11 +9315,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float rd_final[2] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 2);
@@ -9353,11 +9353,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a00090" ::: "memory");
@@ -9390,11 +9390,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a10090" ::: "memory");
@@ -9427,11 +9427,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a20090" ::: "memory");
@@ -9464,11 +9464,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a30090" ::: "memory");
@@ -9501,11 +9501,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a40090" ::: "memory");
@@ -9538,11 +9538,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a50090" ::: "memory");
@@ -9575,11 +9575,11 @@ int run_vcmovt_p(struct test_error_info *errlist,
       asm volatile("lv.s S000, 0*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S001, 1*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a60090" ::: "memory");
@@ -9631,15 +9631,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000039" ::: "memory");
@@ -9677,15 +9677,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000039" ::: "memory");
@@ -9723,15 +9723,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000039" ::: "memory");
@@ -9769,15 +9769,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000039" ::: "memory");
@@ -9815,15 +9815,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000039" ::: "memory");
@@ -9861,15 +9861,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000039" ::: "memory");
@@ -9907,15 +9907,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000039" ::: "memory");
@@ -9953,15 +9953,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -9999,15 +9999,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -10045,15 +10045,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -10091,15 +10091,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -10137,15 +10137,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -10183,15 +10183,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -10229,15 +10229,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0500e4" ::: "memory");
@@ -10275,15 +10275,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -10321,15 +10321,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -10367,15 +10367,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -10413,15 +10413,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -10459,15 +10459,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -10505,15 +10505,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -10551,15 +10551,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0a00e4" ::: "memory");
@@ -10597,15 +10597,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -10643,15 +10643,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -10689,15 +10689,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -10735,15 +10735,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -10781,15 +10781,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -10827,15 +10827,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -10873,15 +10873,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0f00e4" ::: "memory");
@@ -10919,15 +10919,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -10965,15 +10965,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -11011,15 +11011,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -11057,15 +11057,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -11103,15 +11103,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -11149,15 +11149,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -11195,15 +11195,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc0005e4" ::: "memory");
@@ -11241,15 +11241,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -11287,15 +11287,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -11333,15 +11333,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -11379,15 +11379,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -11425,15 +11425,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -11471,15 +11471,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -11517,15 +11517,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000ae4" ::: "memory");
@@ -11563,15 +11563,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -11609,15 +11609,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -11655,15 +11655,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -11701,15 +11701,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -11747,15 +11747,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -11793,15 +11793,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -11839,15 +11839,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc000fe4" ::: "memory");
@@ -11885,15 +11885,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -11931,15 +11931,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -11977,15 +11977,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -12023,15 +12023,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -12069,15 +12069,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -12115,15 +12115,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -12161,15 +12161,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xdc00f4a7" ::: "memory");
@@ -12206,15 +12206,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 4);
@@ -12252,15 +12252,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 4);
@@ -12298,15 +12298,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 4);
@@ -12344,15 +12344,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 4);
@@ -12390,15 +12390,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 4);
@@ -12436,15 +12436,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 4);
@@ -12482,15 +12482,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000f00, 4);
@@ -12528,15 +12528,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 4);
@@ -12574,15 +12574,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 4);
@@ -12620,15 +12620,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 4);
@@ -12666,15 +12666,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 4);
@@ -12712,15 +12712,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 4);
@@ -12758,15 +12758,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 4);
@@ -12804,15 +12804,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde000055, 4);
@@ -12850,15 +12850,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 4);
@@ -12896,15 +12896,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 4);
@@ -12942,15 +12942,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 4);
@@ -12988,15 +12988,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 4);
@@ -13034,15 +13034,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 4);
@@ -13080,15 +13080,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 4);
@@ -13126,15 +13126,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float rd_final[4] = {0};
       pfx_dst((uint32_t *)&rd_final[0], (uint32_t *)&rd[0], 0xde0000ff, 4);
@@ -13172,15 +13172,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 0;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 0;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a08090" ::: "memory");
@@ -13217,15 +13217,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 1;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 1;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a18090" ::: "memory");
@@ -13262,15 +13262,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 2;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 2;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a28090" ::: "memory");
@@ -13307,15 +13307,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 3;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 3;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a38090" ::: "memory");
@@ -13352,15 +13352,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 4;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 4;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a48090" ::: "memory");
@@ -13397,15 +13397,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 5;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 5;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a58090" ::: "memory");
@@ -13442,15 +13442,15 @@ int run_vcmovt_q(struct test_error_info *errlist,
       asm volatile("lv.s S002, 2*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("lv.s S003, 3*4(%0)" ::"r"(&rs_ref[0]));
       asm volatile("mtvc %0, $131" ::"r"(pack6(vfpu_cc)));
-      unsigned cc = 6;
-      rd[0] = (cc == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
-                        : (vfpu_cc[cc] ? rs[0] : rd[0]);
-      rd[1] = (cc == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
-                        : (vfpu_cc[cc] ? rs[1] : rd[1]);
-      rd[2] = (cc == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
-                        : (vfpu_cc[cc] ? rs[2] : rd[2]);
-      rd[3] = (cc == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
-                        : (vfpu_cc[cc] ? rs[3] : rd[3]);
+      unsigned cc_sel = 6;
+      rd[0] = (cc_sel == 6) ? (vfpu_cc[0] ? rs[0] : rd[0])
+                            : (vfpu_cc[cc_sel] ? rs[0] : rd[0]);
+      rd[1] = (cc_sel == 6) ? (vfpu_cc[1] ? rs[1] : rd[1])
+                            : (vfpu_cc[cc_sel] ? rs[1] : rd[1]);
+      rd[2] = (cc_sel == 6) ? (vfpu_cc[2] ? rs[2] : rd[2])
+                            : (vfpu_cc[cc_sel] ? rs[2] : rd[2]);
+      rd[3] = (cc_sel == 6) ? (vfpu_cc[3] ? rs[3] : rd[3])
+                            : (vfpu_cc[cc_sel] ? rs[3] : rd[3]);
       ;
       float *rd_final = &rd[0]; // No dst prefix
       asm volatile(".word 0xd2a68090" ::: "memory");

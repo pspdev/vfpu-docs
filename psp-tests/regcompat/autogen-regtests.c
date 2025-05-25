@@ -9892,7 +9892,8 @@ static const uint32_t reg_save_inst[128] = {
 };
 #define regcol(s1, s2) ((((s1)[0] & (s2)[0]) | ((s1)[1] & (s2)[1])) != 0)
 #define regcompatcol(r1, s1, r2, s2)                                           \
-  (((s1)[0] == (s2)[0]) && ((s1)[1] == (s2)[1]) && (((r1)&0x20) == ((r2)&0x20)))
+  (((s1)[0] == (s2)[0]) && ((s1)[1] == (s2)[1]) &&                             \
+   (((r1) & 0x20) == ((r2) & 0x20)))
 static uint32_t bg_noise[128] __attribute__((aligned(16)));
 static uint32_t instb[64]; // JIT buffer
 #define jit_jump0(a0) ((void (*)(void *))instb)(a0);
@@ -9975,11 +9976,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vadd.s
+  } // test case end for vadd.s
   entrycnt++;
   { // Tests for instruction vadd.p (Add elements)
     int dbgcnt = 0;
@@ -10057,11 +10058,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vadd.p
+  } // test case end for vadd.p
   entrycnt++;
   { // Tests for instruction vadd.t (Add elements)
     int dbgcnt = 0;
@@ -10142,11 +10143,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vadd.t
+  } // test case end for vadd.t
   entrycnt++;
   { // Tests for instruction vadd.q (Add elements)
     int dbgcnt = 0;
@@ -10230,11 +10231,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vadd.q
+  } // test case end for vadd.q
   entrycnt++;
   { // Tests for instruction vsub.s (Subtract elements)
     int dbgcnt = 0;
@@ -10309,11 +10310,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsub.s
+  } // test case end for vsub.s
   entrycnt++;
   { // Tests for instruction vsub.p (Subtract elements)
     int dbgcnt = 0;
@@ -10391,11 +10392,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsub.p
+  } // test case end for vsub.p
   entrycnt++;
   { // Tests for instruction vsub.t (Subtract elements)
     int dbgcnt = 0;
@@ -10476,11 +10477,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsub.t
+  } // test case end for vsub.t
   entrycnt++;
   { // Tests for instruction vsub.q (Subtract elements)
     int dbgcnt = 0;
@@ -10564,11 +10565,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsub.q
+  } // test case end for vsub.q
   entrycnt++;
   { // Tests for instruction vmul.s (Multiply elements)
     int dbgcnt = 0;
@@ -10643,11 +10644,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmul.s
+  } // test case end for vmul.s
   entrycnt++;
   { // Tests for instruction vmul.p (Multiply elements)
     int dbgcnt = 0;
@@ -10725,11 +10726,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmul.p
+  } // test case end for vmul.p
   entrycnt++;
   { // Tests for instruction vmul.t (Multiply elements)
     int dbgcnt = 0;
@@ -10810,11 +10811,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmul.t
+  } // test case end for vmul.t
   entrycnt++;
   { // Tests for instruction vmul.q (Multiply elements)
     int dbgcnt = 0;
@@ -10898,11 +10899,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmul.q
+  } // test case end for vmul.q
   entrycnt++;
   { // Tests for instruction vdiv.s (Divide elements)
     int dbgcnt = 0;
@@ -10977,11 +10978,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vdiv.s
+  } // test case end for vdiv.s
   entrycnt++;
   { // Tests for instruction vdiv.p (Divide elements)
     int dbgcnt = 0;
@@ -11059,11 +11060,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vdiv.p
+  } // test case end for vdiv.p
   entrycnt++;
   { // Tests for instruction vdiv.t (Divide elements)
     int dbgcnt = 0;
@@ -11144,11 +11145,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vdiv.t
+  } // test case end for vdiv.t
   entrycnt++;
   { // Tests for instruction vdiv.q (Divide elements)
     int dbgcnt = 0;
@@ -11232,11 +11233,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vdiv.q
+  } // test case end for vdiv.q
   entrycnt++;
   { // Tests for instruction vmin.s (Select smallest elements)
     int dbgcnt = 0;
@@ -11311,11 +11312,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmin.s
+  } // test case end for vmin.s
   entrycnt++;
   { // Tests for instruction vmin.p (Select smallest elements)
     int dbgcnt = 0;
@@ -11393,11 +11394,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmin.p
+  } // test case end for vmin.p
   entrycnt++;
   { // Tests for instruction vmin.t (Select smallest elements)
     int dbgcnt = 0;
@@ -11478,11 +11479,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmin.t
+  } // test case end for vmin.t
   entrycnt++;
   { // Tests for instruction vmin.q (Select smallest elements)
     int dbgcnt = 0;
@@ -11566,11 +11567,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmin.q
+  } // test case end for vmin.q
   entrycnt++;
   { // Tests for instruction vmax.s (Select biggest elements)
     int dbgcnt = 0;
@@ -11645,11 +11646,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmax.s
+  } // test case end for vmax.s
   entrycnt++;
   { // Tests for instruction vmax.p (Select biggest elements)
     int dbgcnt = 0;
@@ -11727,11 +11728,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmax.p
+  } // test case end for vmax.p
   entrycnt++;
   { // Tests for instruction vmax.t (Select biggest elements)
     int dbgcnt = 0;
@@ -11812,11 +11813,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmax.t
+  } // test case end for vmax.t
   entrycnt++;
   { // Tests for instruction vmax.q (Select biggest elements)
     int dbgcnt = 0;
@@ -11900,11 +11901,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmax.q
+  } // test case end for vmax.q
   entrycnt++;
   { // Tests for instruction vscmp.s (Compare and set elements)
     int dbgcnt = 0;
@@ -11979,11 +11980,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vscmp.s
+  } // test case end for vscmp.s
   entrycnt++;
   { // Tests for instruction vscmp.p (Compare and set elements)
     int dbgcnt = 0;
@@ -12061,11 +12062,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vscmp.p
+  } // test case end for vscmp.p
   entrycnt++;
   { // Tests for instruction vscmp.t (Compare and set elements)
     int dbgcnt = 0;
@@ -12146,11 +12147,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vscmp.t
+  } // test case end for vscmp.t
   entrycnt++;
   { // Tests for instruction vscmp.q (Compare and set elements)
     int dbgcnt = 0;
@@ -12234,11 +12235,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vscmp.q
+  } // test case end for vscmp.q
   entrycnt++;
   { // Tests for instruction vsge.s (Compare greater or equal and set elements)
     int dbgcnt = 0;
@@ -12313,11 +12314,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsge.s
+  } // test case end for vsge.s
   entrycnt++;
   { // Tests for instruction vsge.p (Compare greater or equal and set elements)
     int dbgcnt = 0;
@@ -12395,11 +12396,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsge.p
+  } // test case end for vsge.p
   entrycnt++;
   { // Tests for instruction vsge.t (Compare greater or equal and set elements)
     int dbgcnt = 0;
@@ -12480,11 +12481,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsge.t
+  } // test case end for vsge.t
   entrycnt++;
   { // Tests for instruction vsge.q (Compare greater or equal and set elements)
     int dbgcnt = 0;
@@ -12568,11 +12569,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsge.q
+  } // test case end for vsge.q
   entrycnt++;
   { // Tests for instruction vslt.s (Compare less-than and set elements)
     int dbgcnt = 0;
@@ -12647,11 +12648,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vslt.s
+  } // test case end for vslt.s
   entrycnt++;
   { // Tests for instruction vslt.p (Compare less-than and set elements)
     int dbgcnt = 0;
@@ -12729,11 +12730,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vslt.p
+  } // test case end for vslt.p
   entrycnt++;
   { // Tests for instruction vslt.t (Compare less-than and set elements)
     int dbgcnt = 0;
@@ -12814,11 +12815,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vslt.t
+  } // test case end for vslt.t
   entrycnt++;
   { // Tests for instruction vslt.q (Compare less-than and set elements)
     int dbgcnt = 0;
@@ -12902,11 +12903,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vslt.q
+  } // test case end for vslt.q
   entrycnt++;
   { // Tests for instruction vcrs.t (Partial vector cross product)
     int dbgcnt = 0;
@@ -12987,11 +12988,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vcrs.t
+  } // test case end for vcrs.t
   entrycnt++;
   { // Tests for instruction vcrsp.t (Vector cross product)
     int dbgcnt = 0;
@@ -13072,11 +13073,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vcrsp.t
+  } // test case end for vcrsp.t
   entrycnt++;
   { // Tests for instruction vqmul.q (Quaternion multiplication)
     int dbgcnt = 0;
@@ -13160,11 +13161,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vqmul.q
+  } // test case end for vqmul.q
   entrycnt++;
   { // Tests for instruction vsbn.s (Change exponent scale)
     int dbgcnt = 0;
@@ -13239,11 +13240,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsbn.s
+  } // test case end for vsbn.s
   entrycnt++;
   { // Tests for instruction vscl.p (Vector scalar scale)
     int dbgcnt = 0;
@@ -13320,11 +13321,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vscl.p
+  } // test case end for vscl.p
   entrycnt++;
   { // Tests for instruction vscl.t (Vector scalar scale)
     int dbgcnt = 0;
@@ -13403,11 +13404,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vscl.t
+  } // test case end for vscl.t
   entrycnt++;
   { // Tests for instruction vscl.q (Vector scalar scale)
     int dbgcnt = 0;
@@ -13488,11 +13489,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vscl.q
+  } // test case end for vscl.q
   entrycnt++;
   { // Tests for instruction vdot.p (Vector dot product)
     int dbgcnt = 0;
@@ -13569,11 +13570,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vdot.p
+  } // test case end for vdot.p
   entrycnt++;
   { // Tests for instruction vdot.t (Vector dot product)
     int dbgcnt = 0;
@@ -13652,11 +13653,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vdot.t
+  } // test case end for vdot.t
   entrycnt++;
   { // Tests for instruction vdot.q (Vector dot product)
     int dbgcnt = 0;
@@ -13737,11 +13738,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vdot.q
+  } // test case end for vdot.q
   entrycnt++;
   { // Tests for instruction vdet.p (2x2 matrix determinant)
     int dbgcnt = 0;
@@ -13818,11 +13819,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vdet.p
+  } // test case end for vdet.p
   entrycnt++;
   { // Tests for instruction vhdp.p (Homogeneous dot product)
     int dbgcnt = 0;
@@ -13899,11 +13900,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vhdp.p
+  } // test case end for vhdp.p
   entrycnt++;
   { // Tests for instruction vhdp.t (Homogeneous dot product)
     int dbgcnt = 0;
@@ -13982,11 +13983,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vhdp.t
+  } // test case end for vhdp.t
   entrycnt++;
   { // Tests for instruction vhdp.q (Homogeneous dot product)
     int dbgcnt = 0;
@@ -14067,11 +14068,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vhdp.q
+  } // test case end for vhdp.q
   entrycnt++;
   { // Tests for instruction vmov.s (Vector copy)
     int dbgcnt = 0;
@@ -14130,10 +14131,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmov.s
+  } // test case end for vmov.s
   entrycnt++;
   { // Tests for instruction vmov.p (Vector copy)
     int dbgcnt = 0;
@@ -14194,10 +14195,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmov.p
+  } // test case end for vmov.p
   entrycnt++;
   { // Tests for instruction vmov.t (Vector copy)
     int dbgcnt = 0;
@@ -14260,10 +14261,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmov.t
+  } // test case end for vmov.t
   entrycnt++;
   { // Tests for instruction vmov.q (Vector copy)
     int dbgcnt = 0;
@@ -14328,10 +14329,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmov.q
+  } // test case end for vmov.q
   entrycnt++;
   { // Tests for instruction vabs.s (Absolute value)
     int dbgcnt = 0;
@@ -14390,10 +14391,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vabs.s
+  } // test case end for vabs.s
   entrycnt++;
   { // Tests for instruction vabs.p (Absolute value)
     int dbgcnt = 0;
@@ -14454,10 +14455,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vabs.p
+  } // test case end for vabs.p
   entrycnt++;
   { // Tests for instruction vabs.t (Absolute value)
     int dbgcnt = 0;
@@ -14520,10 +14521,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vabs.t
+  } // test case end for vabs.t
   entrycnt++;
   { // Tests for instruction vabs.q (Absolute value)
     int dbgcnt = 0;
@@ -14588,10 +14589,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vabs.q
+  } // test case end for vabs.q
   entrycnt++;
   { // Tests for instruction vneg.s (Floating point negation)
     int dbgcnt = 0;
@@ -14650,10 +14651,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vneg.s
+  } // test case end for vneg.s
   entrycnt++;
   { // Tests for instruction vneg.p (Floating point negation)
     int dbgcnt = 0;
@@ -14714,10 +14715,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vneg.p
+  } // test case end for vneg.p
   entrycnt++;
   { // Tests for instruction vneg.t (Floating point negation)
     int dbgcnt = 0;
@@ -14780,10 +14781,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vneg.t
+  } // test case end for vneg.t
   entrycnt++;
   { // Tests for instruction vneg.q (Floating point negation)
     int dbgcnt = 0;
@@ -14848,10 +14849,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vneg.q
+  } // test case end for vneg.q
   entrycnt++;
   { // Tests for instruction vsat0.s (Saturate float to 0..1)
     int dbgcnt = 0;
@@ -14910,10 +14911,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsat0.s
+  } // test case end for vsat0.s
   entrycnt++;
   { // Tests for instruction vsat0.p (Saturate float to 0..1)
     int dbgcnt = 0;
@@ -14974,10 +14975,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsat0.p
+  } // test case end for vsat0.p
   entrycnt++;
   { // Tests for instruction vsat0.t (Saturate float to 0..1)
     int dbgcnt = 0;
@@ -15040,10 +15041,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsat0.t
+  } // test case end for vsat0.t
   entrycnt++;
   { // Tests for instruction vsat0.q (Saturate float to 0..1)
     int dbgcnt = 0;
@@ -15108,10 +15109,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsat0.q
+  } // test case end for vsat0.q
   entrycnt++;
   { // Tests for instruction vsat1.s (Saturate float to -1..1)
     int dbgcnt = 0;
@@ -15170,10 +15171,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsat1.s
+  } // test case end for vsat1.s
   entrycnt++;
   { // Tests for instruction vsat1.p (Saturate float to -1..1)
     int dbgcnt = 0;
@@ -15234,10 +15235,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsat1.p
+  } // test case end for vsat1.p
   entrycnt++;
   { // Tests for instruction vsat1.t (Saturate float to -1..1)
     int dbgcnt = 0;
@@ -15300,10 +15301,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsat1.t
+  } // test case end for vsat1.t
   entrycnt++;
   { // Tests for instruction vsat1.q (Saturate float to -1..1)
     int dbgcnt = 0;
@@ -15368,10 +15369,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsat1.q
+  } // test case end for vsat1.q
   entrycnt++;
   { // Tests for instruction vrcp.s (Reciprocate elements)
     int dbgcnt = 0;
@@ -15430,10 +15431,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrcp.s
+  } // test case end for vrcp.s
   entrycnt++;
   { // Tests for instruction vrcp.p (Reciprocate elements)
     int dbgcnt = 0;
@@ -15494,10 +15495,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrcp.p
+  } // test case end for vrcp.p
   entrycnt++;
   { // Tests for instruction vrcp.t (Reciprocate elements)
     int dbgcnt = 0;
@@ -15560,10 +15561,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrcp.t
+  } // test case end for vrcp.t
   entrycnt++;
   { // Tests for instruction vrcp.q (Reciprocate elements)
     int dbgcnt = 0;
@@ -15628,10 +15629,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrcp.q
+  } // test case end for vrcp.q
   entrycnt++;
   { // Tests for instruction vrsq.s (Reciprocal square root)
     int dbgcnt = 0;
@@ -15690,10 +15691,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrsq.s
+  } // test case end for vrsq.s
   entrycnt++;
   { // Tests for instruction vrsq.p (Reciprocal square root)
     int dbgcnt = 0;
@@ -15754,10 +15755,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrsq.p
+  } // test case end for vrsq.p
   entrycnt++;
   { // Tests for instruction vrsq.t (Reciprocal square root)
     int dbgcnt = 0;
@@ -15820,10 +15821,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrsq.t
+  } // test case end for vrsq.t
   entrycnt++;
   { // Tests for instruction vrsq.q (Reciprocal square root)
     int dbgcnt = 0;
@@ -15888,10 +15889,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrsq.q
+  } // test case end for vrsq.q
   entrycnt++;
   { // Tests for instruction vsin.s (Sine function)
     int dbgcnt = 0;
@@ -15950,10 +15951,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsin.s
+  } // test case end for vsin.s
   entrycnt++;
   { // Tests for instruction vsin.p (Sine function)
     int dbgcnt = 0;
@@ -16014,10 +16015,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsin.p
+  } // test case end for vsin.p
   entrycnt++;
   { // Tests for instruction vsin.t (Sine function)
     int dbgcnt = 0;
@@ -16080,10 +16081,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsin.t
+  } // test case end for vsin.t
   entrycnt++;
   { // Tests for instruction vsin.q (Sine function)
     int dbgcnt = 0;
@@ -16148,10 +16149,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsin.q
+  } // test case end for vsin.q
   entrycnt++;
   { // Tests for instruction vcos.s (Cosine function)
     int dbgcnt = 0;
@@ -16210,10 +16211,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vcos.s
+  } // test case end for vcos.s
   entrycnt++;
   { // Tests for instruction vcos.p (Cosine function)
     int dbgcnt = 0;
@@ -16274,10 +16275,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vcos.p
+  } // test case end for vcos.p
   entrycnt++;
   { // Tests for instruction vcos.t (Cosine function)
     int dbgcnt = 0;
@@ -16340,10 +16341,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vcos.t
+  } // test case end for vcos.t
   entrycnt++;
   { // Tests for instruction vcos.q (Cosine function)
     int dbgcnt = 0;
@@ -16408,10 +16409,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vcos.q
+  } // test case end for vcos.q
   entrycnt++;
   { // Tests for instruction vexp2.s (Base-2 exponentiation)
     int dbgcnt = 0;
@@ -16470,10 +16471,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vexp2.s
+  } // test case end for vexp2.s
   entrycnt++;
   { // Tests for instruction vexp2.p (Base-2 exponentiation)
     int dbgcnt = 0;
@@ -16534,10 +16535,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vexp2.p
+  } // test case end for vexp2.p
   entrycnt++;
   { // Tests for instruction vexp2.t (Base-2 exponentiation)
     int dbgcnt = 0;
@@ -16600,10 +16601,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vexp2.t
+  } // test case end for vexp2.t
   entrycnt++;
   { // Tests for instruction vexp2.q (Base-2 exponentiation)
     int dbgcnt = 0;
@@ -16668,10 +16669,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vexp2.q
+  } // test case end for vexp2.q
   entrycnt++;
   { // Tests for instruction vlog2.s (Base-2 logarithm)
     int dbgcnt = 0;
@@ -16730,10 +16731,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vlog2.s
+  } // test case end for vlog2.s
   entrycnt++;
   { // Tests for instruction vlog2.p (Base-2 logarithm)
     int dbgcnt = 0;
@@ -16794,10 +16795,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vlog2.p
+  } // test case end for vlog2.p
   entrycnt++;
   { // Tests for instruction vlog2.t (Base-2 logarithm)
     int dbgcnt = 0;
@@ -16860,10 +16861,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vlog2.t
+  } // test case end for vlog2.t
   entrycnt++;
   { // Tests for instruction vlog2.q (Base-2 logarithm)
     int dbgcnt = 0;
@@ -16928,10 +16929,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vlog2.q
+  } // test case end for vlog2.q
   entrycnt++;
   { // Tests for instruction vlgb.s (LogB calculation)
     int dbgcnt = 0;
@@ -16990,10 +16991,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vlgb.s
+  } // test case end for vlgb.s
   entrycnt++;
   { // Tests for instruction vsbz.s (Reset exponent scale)
     int dbgcnt = 0;
@@ -17052,10 +17053,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsbz.s
+  } // test case end for vsbz.s
   entrycnt++;
   { // Tests for instruction vwbn.s (Floating point modulus)
     int dbgcnt = 0;
@@ -17124,10 +17125,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vwbn.s
+  } // test case end for vwbn.s
   entrycnt++;
   { // Tests for instruction vsqrt.s (Square root)
     int dbgcnt = 0;
@@ -17186,10 +17187,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsqrt.s
+  } // test case end for vsqrt.s
   entrycnt++;
   { // Tests for instruction vsqrt.p (Square root)
     int dbgcnt = 0;
@@ -17250,10 +17251,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsqrt.p
+  } // test case end for vsqrt.p
   entrycnt++;
   { // Tests for instruction vsqrt.t (Square root)
     int dbgcnt = 0;
@@ -17316,10 +17317,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsqrt.t
+  } // test case end for vsqrt.t
   entrycnt++;
   { // Tests for instruction vsqrt.q (Square root)
     int dbgcnt = 0;
@@ -17384,10 +17385,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsqrt.q
+  } // test case end for vsqrt.q
   entrycnt++;
   { // Tests for instruction vasin.s (Arc sine function)
     int dbgcnt = 0;
@@ -17446,10 +17447,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vasin.s
+  } // test case end for vasin.s
   entrycnt++;
   { // Tests for instruction vasin.p (Arc sine function)
     int dbgcnt = 0;
@@ -17510,10 +17511,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vasin.p
+  } // test case end for vasin.p
   entrycnt++;
   { // Tests for instruction vasin.t (Arc sine function)
     int dbgcnt = 0;
@@ -17576,10 +17577,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vasin.t
+  } // test case end for vasin.t
   entrycnt++;
   { // Tests for instruction vasin.q (Arc sine function)
     int dbgcnt = 0;
@@ -17644,10 +17645,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vasin.q
+  } // test case end for vasin.q
   entrycnt++;
   { // Tests for instruction vnrcp.s (Negative reciprocal)
     int dbgcnt = 0;
@@ -17706,10 +17707,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vnrcp.s
+  } // test case end for vnrcp.s
   entrycnt++;
   { // Tests for instruction vnrcp.p (Negative reciprocal)
     int dbgcnt = 0;
@@ -17770,10 +17771,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vnrcp.p
+  } // test case end for vnrcp.p
   entrycnt++;
   { // Tests for instruction vnrcp.t (Negative reciprocal)
     int dbgcnt = 0;
@@ -17836,10 +17837,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vnrcp.t
+  } // test case end for vnrcp.t
   entrycnt++;
   { // Tests for instruction vnrcp.q (Negative reciprocal)
     int dbgcnt = 0;
@@ -17904,10 +17905,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vnrcp.q
+  } // test case end for vnrcp.q
   entrycnt++;
   { // Tests for instruction vnsin.s (Negative sine function)
     int dbgcnt = 0;
@@ -17966,10 +17967,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vnsin.s
+  } // test case end for vnsin.s
   entrycnt++;
   { // Tests for instruction vnsin.p (Negative sine function)
     int dbgcnt = 0;
@@ -18030,10 +18031,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vnsin.p
+  } // test case end for vnsin.p
   entrycnt++;
   { // Tests for instruction vnsin.t (Negative sine function)
     int dbgcnt = 0;
@@ -18096,10 +18097,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vnsin.t
+  } // test case end for vnsin.t
   entrycnt++;
   { // Tests for instruction vnsin.q (Negative sine function)
     int dbgcnt = 0;
@@ -18164,10 +18165,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vnsin.q
+  } // test case end for vnsin.q
   entrycnt++;
   { // Tests for instruction vrexp2.s (Base-2 negative exponentiation)
     int dbgcnt = 0;
@@ -18226,10 +18227,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrexp2.s
+  } // test case end for vrexp2.s
   entrycnt++;
   { // Tests for instruction vrexp2.p (Base-2 negative exponentiation)
     int dbgcnt = 0;
@@ -18290,10 +18291,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrexp2.p
+  } // test case end for vrexp2.p
   entrycnt++;
   { // Tests for instruction vrexp2.t (Base-2 negative exponentiation)
     int dbgcnt = 0;
@@ -18356,10 +18357,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrexp2.t
+  } // test case end for vrexp2.t
   entrycnt++;
   { // Tests for instruction vrexp2.q (Base-2 negative exponentiation)
     int dbgcnt = 0;
@@ -18424,10 +18425,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrexp2.q
+  } // test case end for vrexp2.q
   entrycnt++;
   { // Tests for instruction vsrt1.q (Element min-sort pass #1)
     int dbgcnt = 0;
@@ -18492,10 +18493,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsrt1.q
+  } // test case end for vsrt1.q
   entrycnt++;
   { // Tests for instruction vsrt2.q (Element min-sort pass #2)
     int dbgcnt = 0;
@@ -18560,10 +18561,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsrt2.q
+  } // test case end for vsrt2.q
   entrycnt++;
   { // Tests for instruction vsrt3.q (Element max-sort pass #1)
     int dbgcnt = 0;
@@ -18628,10 +18629,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsrt3.q
+  } // test case end for vsrt3.q
   entrycnt++;
   { // Tests for instruction vsrt4.q (Element max-sort pass #2)
     int dbgcnt = 0;
@@ -18696,10 +18697,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsrt4.q
+  } // test case end for vsrt4.q
   entrycnt++;
   { // Tests for instruction vbfy1.p (Butterfly function #1)
     int dbgcnt = 0;
@@ -18760,10 +18761,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vbfy1.p
+  } // test case end for vbfy1.p
   entrycnt++;
   { // Tests for instruction vbfy1.q (Butterfly function #1)
     int dbgcnt = 0;
@@ -18828,10 +18829,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vbfy1.q
+  } // test case end for vbfy1.q
   entrycnt++;
   { // Tests for instruction vbfy2.q (Butterfly function #2)
     int dbgcnt = 0;
@@ -18896,10 +18897,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vbfy2.q
+  } // test case end for vbfy2.q
   entrycnt++;
   { // Tests for instruction vsgn.s (Sign function)
     int dbgcnt = 0;
@@ -18958,10 +18959,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsgn.s
+  } // test case end for vsgn.s
   entrycnt++;
   { // Tests for instruction vsgn.p (Sign function)
     int dbgcnt = 0;
@@ -19022,10 +19023,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsgn.p
+  } // test case end for vsgn.p
   entrycnt++;
   { // Tests for instruction vsgn.t (Sign function)
     int dbgcnt = 0;
@@ -19088,10 +19089,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsgn.t
+  } // test case end for vsgn.t
   entrycnt++;
   { // Tests for instruction vsgn.q (Sign function)
     int dbgcnt = 0;
@@ -19156,10 +19157,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsgn.q
+  } // test case end for vsgn.q
   entrycnt++;
   { // Tests for instruction vocp.s (One complement function)
     int dbgcnt = 0;
@@ -19218,10 +19219,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vocp.s
+  } // test case end for vocp.s
   entrycnt++;
   { // Tests for instruction vocp.p (One complement function)
     int dbgcnt = 0;
@@ -19282,10 +19283,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vocp.p
+  } // test case end for vocp.p
   entrycnt++;
   { // Tests for instruction vocp.t (One complement function)
     int dbgcnt = 0;
@@ -19348,10 +19349,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vocp.t
+  } // test case end for vocp.t
   entrycnt++;
   { // Tests for instruction vocp.q (One complement function)
     int dbgcnt = 0;
@@ -19416,10 +19417,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vocp.q
+  } // test case end for vocp.q
   entrycnt++;
   { // Tests for instruction vi2f.s (Integer to float with scaling)
     int dbgcnt = 0;
@@ -19484,10 +19485,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vi2f.s
+  } // test case end for vi2f.s
   entrycnt++;
   { // Tests for instruction vi2f.p (Integer to float with scaling)
     int dbgcnt = 0;
@@ -19554,10 +19555,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vi2f.p
+  } // test case end for vi2f.p
   entrycnt++;
   { // Tests for instruction vi2f.t (Integer to float with scaling)
     int dbgcnt = 0;
@@ -19626,10 +19627,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vi2f.t
+  } // test case end for vi2f.t
   entrycnt++;
   { // Tests for instruction vi2f.q (Integer to float with scaling)
     int dbgcnt = 0;
@@ -19700,10 +19701,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vi2f.q
+  } // test case end for vi2f.q
   entrycnt++;
   { // Tests for instruction vf2in.s (Float to integer round-to-nearest with
     // scaling)
@@ -19769,10 +19770,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2in.s
+  } // test case end for vf2in.s
   entrycnt++;
   { // Tests for instruction vf2in.p (Float to integer round-to-nearest with
     // scaling)
@@ -19840,10 +19841,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2in.p
+  } // test case end for vf2in.p
   entrycnt++;
   { // Tests for instruction vf2in.t (Float to integer round-to-nearest with
     // scaling)
@@ -19913,10 +19914,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2in.t
+  } // test case end for vf2in.t
   entrycnt++;
   { // Tests for instruction vf2in.q (Float to integer round-to-nearest with
     // scaling)
@@ -19988,10 +19989,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2in.q
+  } // test case end for vf2in.q
   entrycnt++;
   { // Tests for instruction vf2iz.s (Float to integer truncation with scaling)
     int dbgcnt = 0;
@@ -20056,10 +20057,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2iz.s
+  } // test case end for vf2iz.s
   entrycnt++;
   { // Tests for instruction vf2iz.p (Float to integer truncation with scaling)
     int dbgcnt = 0;
@@ -20126,10 +20127,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2iz.p
+  } // test case end for vf2iz.p
   entrycnt++;
   { // Tests for instruction vf2iz.t (Float to integer truncation with scaling)
     int dbgcnt = 0;
@@ -20198,10 +20199,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2iz.t
+  } // test case end for vf2iz.t
   entrycnt++;
   { // Tests for instruction vf2iz.q (Float to integer truncation with scaling)
     int dbgcnt = 0;
@@ -20272,10 +20273,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2iz.q
+  } // test case end for vf2iz.q
   entrycnt++;
   { // Tests for instruction vf2iu.s (Float to integer round-up with scaling)
     int dbgcnt = 0;
@@ -20340,10 +20341,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2iu.s
+  } // test case end for vf2iu.s
   entrycnt++;
   { // Tests for instruction vf2iu.p (Float to integer round-up with scaling)
     int dbgcnt = 0;
@@ -20410,10 +20411,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2iu.p
+  } // test case end for vf2iu.p
   entrycnt++;
   { // Tests for instruction vf2iu.t (Float to integer round-up with scaling)
     int dbgcnt = 0;
@@ -20482,10 +20483,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2iu.t
+  } // test case end for vf2iu.t
   entrycnt++;
   { // Tests for instruction vf2iu.q (Float to integer round-up with scaling)
     int dbgcnt = 0;
@@ -20556,10 +20557,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2iu.q
+  } // test case end for vf2iu.q
   entrycnt++;
   { // Tests for instruction vf2id.s (Float to integer round-down with scaling)
     int dbgcnt = 0;
@@ -20624,10 +20625,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2id.s
+  } // test case end for vf2id.s
   entrycnt++;
   { // Tests for instruction vf2id.p (Float to integer round-down with scaling)
     int dbgcnt = 0;
@@ -20694,10 +20695,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2id.p
+  } // test case end for vf2id.p
   entrycnt++;
   { // Tests for instruction vf2id.t (Float to integer round-down with scaling)
     int dbgcnt = 0;
@@ -20766,10 +20767,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2id.t
+  } // test case end for vf2id.t
   entrycnt++;
   { // Tests for instruction vf2id.q (Float to integer round-down with scaling)
     int dbgcnt = 0;
@@ -20840,10 +20841,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2id.q
+  } // test case end for vf2id.q
   entrycnt++;
   { // Tests for instruction vrot.p (Rotation matrix row calculation)
     int dbgcnt = 0;
@@ -20909,10 +20910,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrot.p
+  } // test case end for vrot.p
   entrycnt++;
   { // Tests for instruction vrot.t (Rotation matrix row calculation)
     int dbgcnt = 0;
@@ -20979,10 +20980,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrot.t
+  } // test case end for vrot.t
   entrycnt++;
   { // Tests for instruction vrot.q (Rotation matrix row calculation)
     int dbgcnt = 0;
@@ -21050,10 +21051,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vrot.q
+  } // test case end for vrot.q
   entrycnt++;
   { // Tests for instruction vsocp.s (One complement with saturation)
     int dbgcnt = 0;
@@ -21113,10 +21114,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsocp.s
+  } // test case end for vsocp.s
   entrycnt++;
   { // Tests for instruction vsocp.p (One complement with saturation)
     int dbgcnt = 0;
@@ -21179,10 +21180,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vsocp.p
+  } // test case end for vsocp.p
   entrycnt++;
   { // Tests for instruction vavg.p (Calculate element average)
     int dbgcnt = 0;
@@ -21242,10 +21243,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vavg.p
+  } // test case end for vavg.p
   entrycnt++;
   { // Tests for instruction vavg.t (Calculate element average)
     int dbgcnt = 0;
@@ -21306,10 +21307,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vavg.t
+  } // test case end for vavg.t
   entrycnt++;
   { // Tests for instruction vavg.q (Calculate element average)
     int dbgcnt = 0;
@@ -21371,10 +21372,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vavg.q
+  } // test case end for vavg.q
   entrycnt++;
   { // Tests for instruction vfad.p (Calculate element sum)
     int dbgcnt = 0;
@@ -21434,10 +21435,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vfad.p
+  } // test case end for vfad.p
   entrycnt++;
   { // Tests for instruction vfad.t (Calculate element sum)
     int dbgcnt = 0;
@@ -21498,10 +21499,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vfad.t
+  } // test case end for vfad.t
   entrycnt++;
   { // Tests for instruction vfad.q (Calculate element sum)
     int dbgcnt = 0;
@@ -21563,10 +21564,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vfad.q
+  } // test case end for vfad.q
   entrycnt++;
   { // Tests for instruction vzero.s (Clear vector to zero)
     int dbgcnt = 0;
@@ -21613,7 +21614,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vzero.s
+  } // test case end for vzero.s
   entrycnt++;
   { // Tests for instruction vzero.p (Clear vector to zero)
     int dbgcnt = 0;
@@ -21661,7 +21662,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vzero.p
+  } // test case end for vzero.p
   entrycnt++;
   { // Tests for instruction vzero.t (Clear vector to zero)
     int dbgcnt = 0;
@@ -21710,7 +21711,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vzero.t
+  } // test case end for vzero.t
   entrycnt++;
   { // Tests for instruction vzero.q (Clear vector to zero)
     int dbgcnt = 0;
@@ -21760,7 +21761,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vzero.q
+  } // test case end for vzero.q
   entrycnt++;
   { // Tests for instruction vone.s (Clear vector to one)
     int dbgcnt = 0;
@@ -21807,7 +21808,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vone.s
+  } // test case end for vone.s
   entrycnt++;
   { // Tests for instruction vone.p (Clear vector to one)
     int dbgcnt = 0;
@@ -21855,7 +21856,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vone.p
+  } // test case end for vone.p
   entrycnt++;
   { // Tests for instruction vone.t (Clear vector to one)
     int dbgcnt = 0;
@@ -21904,7 +21905,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vone.t
+  } // test case end for vone.t
   entrycnt++;
   { // Tests for instruction vone.q (Clear vector to one)
     int dbgcnt = 0;
@@ -21954,7 +21955,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vone.q
+  } // test case end for vone.q
   entrycnt++;
   { // Tests for instruction vmmul.p (Matrix by matrix multiplication)
     int dbgcnt = 0;
@@ -22038,11 +22039,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmmul.p
+  } // test case end for vmmul.p
   entrycnt++;
   { // Tests for instruction vmmul.t (Matrix by matrix multiplication)
     int dbgcnt = 0;
@@ -22142,11 +22143,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmmul.t
+  } // test case end for vmmul.t
   entrycnt++;
   { // Tests for instruction vmmul.q (Matrix by matrix multiplication)
     int dbgcnt = 0;
@@ -22267,11 +22268,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmmul.q
+  } // test case end for vmmul.q
   entrycnt++;
   { // Tests for instruction vmscl.p (Matrix scale by single factor)
     int dbgcnt = 0;
@@ -22352,11 +22353,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmscl.p
+  } // test case end for vmscl.p
   entrycnt++;
   { // Tests for instruction vmscl.t (Matrix scale by single factor)
     int dbgcnt = 0;
@@ -22448,11 +22449,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmscl.t
+  } // test case end for vmscl.t
   entrycnt++;
   { // Tests for instruction vmscl.q (Matrix scale by single factor)
     int dbgcnt = 0;
@@ -22558,11 +22559,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmscl.q
+  } // test case end for vmscl.q
   entrycnt++;
   { // Tests for instruction vmmov.p (Copy matrix)
     int dbgcnt = 0;
@@ -22627,10 +22628,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmmov.p
+  } // test case end for vmmov.p
   entrycnt++;
   { // Tests for instruction vmmov.t (Copy matrix)
     int dbgcnt = 0;
@@ -22705,10 +22706,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmmov.t
+  } // test case end for vmmov.t
   entrycnt++;
   { // Tests for instruction vmmov.q (Copy matrix)
     int dbgcnt = 0;
@@ -22797,10 +22798,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vmmov.q
+  } // test case end for vmmov.q
   entrycnt++;
   { // Tests for instruction vmidt.p (Set matrix to identity)
     int dbgcnt = 0;
@@ -22850,7 +22851,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vmidt.p
+  } // test case end for vmidt.p
   entrycnt++;
   { // Tests for instruction vmidt.t (Set matrix to identity)
     int dbgcnt = 0;
@@ -22905,7 +22906,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vmidt.t
+  } // test case end for vmidt.t
   entrycnt++;
   { // Tests for instruction vmidt.q (Set matrix to identity)
     int dbgcnt = 0;
@@ -22967,7 +22968,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vmidt.q
+  } // test case end for vmidt.q
   entrycnt++;
   { // Tests for instruction vmzero.p (Clear matrix to zero)
     int dbgcnt = 0;
@@ -23017,7 +23018,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vmzero.p
+  } // test case end for vmzero.p
   entrycnt++;
   { // Tests for instruction vmzero.t (Clear matrix to zero)
     int dbgcnt = 0;
@@ -23072,7 +23073,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vmzero.t
+  } // test case end for vmzero.t
   entrycnt++;
   { // Tests for instruction vmzero.q (Clear matrix to zero)
     int dbgcnt = 0;
@@ -23134,7 +23135,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vmzero.q
+  } // test case end for vmzero.q
   entrycnt++;
   { // Tests for instruction vmone.p (Clear matrix to one)
     int dbgcnt = 0;
@@ -23184,7 +23185,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vmone.p
+  } // test case end for vmone.p
   entrycnt++;
   { // Tests for instruction vmone.t (Clear matrix to one)
     int dbgcnt = 0;
@@ -23239,7 +23240,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vmone.t
+  } // test case end for vmone.t
   entrycnt++;
   { // Tests for instruction vmone.q (Clear matrix to one)
     int dbgcnt = 0;
@@ -23301,7 +23302,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vmone.q
+  } // test case end for vmone.q
   entrycnt++;
   { // Tests for instruction vtfm2.p (Vector by matrix transform)
     int dbgcnt = 0;
@@ -23381,11 +23382,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vtfm2.p
+  } // test case end for vtfm2.p
   entrycnt++;
   { // Tests for instruction vtfm3.t (Vector by matrix transform)
     int dbgcnt = 0;
@@ -23473,11 +23474,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vtfm3.t
+  } // test case end for vtfm3.t
   entrycnt++;
   { // Tests for instruction vtfm4.q (Vector by matrix transform)
     int dbgcnt = 0;
@@ -23574,11 +23575,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vtfm4.q
+  } // test case end for vtfm4.q
   entrycnt++;
   { // Tests for instruction vhtfm2.p (Vector by matrix homogeneous transform)
     int dbgcnt = 0;
@@ -23658,11 +23659,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vhtfm2.p
+  } // test case end for vhtfm2.p
   entrycnt++;
   { // Tests for instruction vhtfm3.t (Vector by matrix homogeneous transform)
     int dbgcnt = 0;
@@ -23750,11 +23751,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vhtfm3.t
+  } // test case end for vhtfm3.t
   entrycnt++;
   { // Tests for instruction vhtfm4.q (Vector by matrix homogeneous transform)
     int dbgcnt = 0;
@@ -23851,11 +23852,11 @@ int run_reg_tests(struct register_compat_info *reginfo) {
               }
               reginfo[entrycnt].test_cnt++;
             } // for reg_rd
-          }   // for reg_rt
-        }     // for reg_rs
+          } // for reg_rt
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vhtfm4.q
+  } // test case end for vhtfm4.q
   entrycnt++;
   { // Tests for instruction vi2uc.q (Pack integer to unsigned char)
     int dbgcnt = 0;
@@ -23917,10 +23918,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vi2uc.q
+  } // test case end for vi2uc.q
   entrycnt++;
   { // Tests for instruction vi2c.q (Pack integer to char)
     int dbgcnt = 0;
@@ -23982,10 +23983,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vi2c.q
+  } // test case end for vi2c.q
   entrycnt++;
   { // Tests for instruction vi2us.p (Pack integer to unsigned short)
     int dbgcnt = 0;
@@ -24045,10 +24046,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vi2us.p
+  } // test case end for vi2us.p
   entrycnt++;
   { // Tests for instruction vi2us.q (Pack integer to unsigned short)
     int dbgcnt = 0;
@@ -24111,10 +24112,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vi2us.q
+  } // test case end for vi2us.q
   entrycnt++;
   { // Tests for instruction vi2s.p (Pack integer to short)
     int dbgcnt = 0;
@@ -24174,10 +24175,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vi2s.p
+  } // test case end for vi2s.p
   entrycnt++;
   { // Tests for instruction vi2s.q (Pack integer to short)
     int dbgcnt = 0;
@@ -24240,10 +24241,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vi2s.q
+  } // test case end for vi2s.q
   entrycnt++;
   { // Tests for instruction vf2h.p (Pack float to float16)
     int dbgcnt = 0;
@@ -24303,10 +24304,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2h.p
+  } // test case end for vf2h.p
   entrycnt++;
   { // Tests for instruction vf2h.q (Pack float to float16)
     int dbgcnt = 0;
@@ -24369,10 +24370,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vf2h.q
+  } // test case end for vf2h.q
   entrycnt++;
   { // Tests for instruction vs2i.s (Unpack short to integer)
     int dbgcnt = 0;
@@ -24432,10 +24433,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vs2i.s
+  } // test case end for vs2i.s
   entrycnt++;
   { // Tests for instruction vs2i.p (Unpack short to integer)
     int dbgcnt = 0;
@@ -24498,10 +24499,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vs2i.p
+  } // test case end for vs2i.p
   entrycnt++;
   { // Tests for instruction vus2i.s (Unpack short to unsigned integer)
     int dbgcnt = 0;
@@ -24561,10 +24562,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vus2i.s
+  } // test case end for vus2i.s
   entrycnt++;
   { // Tests for instruction vus2i.p (Unpack short to unsigned integer)
     int dbgcnt = 0;
@@ -24627,10 +24628,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vus2i.p
+  } // test case end for vus2i.p
   entrycnt++;
   { // Tests for instruction vc2i.s (Unpack char to integer)
     int dbgcnt = 0;
@@ -24692,10 +24693,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vc2i.s
+  } // test case end for vc2i.s
   entrycnt++;
   { // Tests for instruction vuc2ifs.s (Unpack char to unsigned integer)
     int dbgcnt = 0;
@@ -24757,10 +24758,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vuc2ifs.s
+  } // test case end for vuc2ifs.s
   entrycnt++;
   { // Tests for instruction vh2f.s (Unpack float16 to float)
     int dbgcnt = 0;
@@ -24820,10 +24821,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vh2f.s
+  } // test case end for vh2f.s
   entrycnt++;
   { // Tests for instruction vh2f.p (Unpack float16 to float)
     int dbgcnt = 0;
@@ -24886,10 +24887,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vh2f.p
+  } // test case end for vh2f.p
   entrycnt++;
   { // Tests for instruction vt4444.q (ABGR4444 color conversion)
     int dbgcnt = 0;
@@ -24952,10 +24953,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vt4444.q
+  } // test case end for vt4444.q
   entrycnt++;
   { // Tests for instruction vt5551.q (ABGR1555 color conversion)
     int dbgcnt = 0;
@@ -25018,10 +25019,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vt5551.q
+  } // test case end for vt5551.q
   entrycnt++;
   { // Tests for instruction vt5650.q (BGR565 color conversion)
     int dbgcnt = 0;
@@ -25084,10 +25085,10 @@ int run_reg_tests(struct register_compat_info *reginfo) {
             }
             reginfo[entrycnt].test_cnt++;
           } // for reg_rd
-        }   // for reg_rs
+        } // for reg_rs
       }
     } // test case iteration 'i' end
-  }   // test case end for vt5650.q
+  } // test case end for vt5650.q
   entrycnt++;
   { // Tests for instruction viim.s (Load constant integer value)
     int dbgcnt = 0;
@@ -25147,7 +25148,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for viim.s
+  } // test case end for viim.s
   entrycnt++;
   { // Tests for instruction vfim.s (Load constant float value)
     int dbgcnt = 0;
@@ -25207,7 +25208,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vfim.s
+  } // test case end for vfim.s
   entrycnt++;
   { // Tests for instruction vcst.s (Load special constant)
     int dbgcnt = 0;
@@ -25259,7 +25260,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vcst.s
+  } // test case end for vcst.s
   entrycnt++;
   { // Tests for instruction vcst.p (Load special constant)
     int dbgcnt = 0;
@@ -25312,7 +25313,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vcst.p
+  } // test case end for vcst.p
   entrycnt++;
   { // Tests for instruction vcst.t (Load special constant)
     int dbgcnt = 0;
@@ -25366,7 +25367,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vcst.t
+  } // test case end for vcst.t
   entrycnt++;
   { // Tests for instruction vcst.q (Load special constant)
     int dbgcnt = 0;
@@ -25421,7 +25422,7 @@ int run_reg_tests(struct register_compat_info *reginfo) {
         } // for reg_rd
       }
     } // test case iteration 'i' end
-  }   // test case end for vcst.q
+  } // test case end for vcst.q
   entrycnt++;
   return entrycnt;
 }

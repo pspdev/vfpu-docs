@@ -156,13 +156,13 @@ for instname, iobj in instparse.insts.items():
 				pcode[i] = pcode[i].replace("{i}", str(i)).replace("{c}", str(c)).replace("{r}", str(r))
 			pcode = ";\n".join(pcode)
 
-		pcode = re.sub("[\n\s]+", " ", pcode)
+		pcode = re.sub(r"[\n\s]+", " ", pcode)
 		pcode = [x.strip(" \t;") for x in pcode.split(";")]
 		pcode = [ util.simplify_code(x) or x for x in pcode ]
 
 		pcodeep = iobj.pepilogue()
 		if pcodeep:
-			pcodeep = re.sub("[\n\s]+", " ", pcodeep)
+			pcodeep = re.sub(r"[\n\s]+", " ", pcodeep)
 			pcodeep = [x.strip(" \t;") for x in pcodeep.split(";")]
 			pcodeep = [ util.simplify_code(x) or x for x in pcodeep ]
 			pcode += pcodeep

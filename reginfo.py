@@ -44,7 +44,7 @@ def genvect(regtype, vsize):
 			for i in range(32):    # R000...R703
 				nreg = (i & ~3) + ((i & 3) * 32)
 				yield (i+32, [nreg, nreg+1, nreg+2, nreg+3])
-	else:
+	elif regtype == "matrix":
 		if vsize == 2:
 			for i in range(0, 32, 2):    # M000, M020, M100...
 				yield (i, [i, i+1, i+32, i+33])      # S000, S010, S001, S011

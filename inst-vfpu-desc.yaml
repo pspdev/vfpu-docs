@@ -26,28 +26,34 @@ instruction-operands:
 
   # Memory instructions
   vfpu-load4:
-    syntax: "%opcode rd, imm14(rt)"
+    syntax: "%opcode %rd, imm14(%rt)"
+    inputs:
+      rt: gpr
     outputs:
       rd: single
 
   vfpu-load16:
-    syntax: "%opcode rd, imm14(rt)"
+    syntax: "%opcode %rd, imm14(%rt)"
+    inputs:
+      rt: gpr
     outputs:
       rd: vector
 
   vfpu-store4:
-    syntax: "%opcode rs, imm14(rt)"
+    syntax: "%opcode %rs, imm14(%rt)"
     inputs:
-      rd: single
+      rt: gpr
+      rs: single
 
   vfpu-store16:
-    syntax: "%opcode rs, imm14(rt)"
+    syntax: "%opcode %rs, imm14(%rt)"
     inputs:
-      rd: vector
+      rt: gpr
+      rs: vector
 
   # Vector-related insts
   vector-binary:     # An instruction with two arguments: rs and rt, both vectors
-    syntax: "%opcode rd, rs, rt"
+    syntax: "%opcode %rd, %rs, %rt"
     inputs:
       rs: vector
       rt: vector
@@ -55,7 +61,7 @@ instruction-operands:
       rd: vector
 
   vfpu-compare:
-    syntax: "%opcode cond, rs, rt"
+    syntax: "%opcode %cond, %rs, %rt"
     inputs:
       rs: vector
       rt: vector
@@ -63,11 +69,13 @@ instruction-operands:
       vfpu_cc: vfpucc
     immediates:
       cond:
+        type: enum
+        enum: ["FL", "EQ", "LT", "LE", "TR", "NE", "GE", "GT", "EZ", "EN", "EI", "ES", "NZ", "NN", "NI", "NS"]
         minval: 0
         maxval: 15
 
   vector-binary-reduce:   # Same as above but produces a single value as result
-    syntax: "%opcode rd, rs, rt"
+    syntax: "%opcode %rd, %rs, %rt"
     inputs:
       rs: vector
       rt: vector
@@ -75,7 +83,7 @@ instruction-operands:
       rd: single
 
   vector-binary-scale:   # Second input is an scalar number instead of a vector
-    syntax: "%opcode rd, rs, rt"
+    syntax: "%opcode %rd, %rs, %rt"
     inputs:
       rs: vector
       rt: single
@@ -83,53 +91,54 @@ instruction-operands:
       rd: vector
 
   vector-unary:      # An instruction with just an input: rs
-    syntax: "%opcode rd, rs"
+    syntax: "%opcode %rd, %rs"
     inputs:
       rs: vector
     outputs:
       rd: vector
 
   vector-unary-reduce:    # Same as above but result is a single value
-    syntax: "%opcode rd, rs"
+    syntax: "%opcode %rd, %rs"
     inputs:
       rs: vector
     outputs:
       rd: single
 
   vector-unary-reduce2:    # A N to N/2 reduction type (q->p / p->s)
-    syntax: "%opcode rd, rs"
+    syntax: "%opcode %rd, %rs"
     inputs:
       rs: vector
     outputs:
       rd: vector:H
 
   vector-unary-expand2:    # A N to N*2 expansions type (q->p / p->s)
-    syntax: "%opcode rd, rs"
+    syntax: "%opcode %rd, %rs"
     inputs:
       rs: vector
     outputs:
       rd: vector:D
 
   vector-unary-expand4:    # A N to N*4 expansions type (s->q)
-    syntax: "%opcode rd, rs"
+    syntax: "%opcode %rd, %rs"
     inputs:
       rs: vector
     outputs:
       rd: vector:Q
 
   vector-unary-scale:      # Features an extra imm5 field
-    syntax: "%opcode rd, rs, scale"
+    syntax: "%opcode %rd, %rs, %imval"
     inputs:
       rs: vector
     outputs:
       rd: vector
     immediates:
       imval:
+        type: integer
         minval: 0
         maxval: 31
 
   vector-unary-rot:       # rs is always single and has an extra imm5 field
-    syntax: "%opcode rd, rs, imm5"
+    syntax: "%opcode %rd, %rs, %imm5"
     inputs:
       rs: single
     outputs:
@@ -140,28 +149,29 @@ instruction-operands:
         maxval: 31
 
   vector-unary-mod:       # Features an extra imm8 field
-    syntax: "%opcode rd, rs, scale"
+    syntax: "%opcode %rd, %rs, %imval"
     inputs:
       rs: vector
     outputs:
       rd: vector
     immediates:
       imval:
+        type: integer
         minval: 1
         maxval: 254
 
   vector-inullary:    # An instruction with inputs, no outputs (yeah weird)
-    syntax: "%opcode rs"
+    syntax: "%opcode %rs"
     inputs:
       rs: vector
 
   vector-nullary:    # An instruction with no inputs, just output
-    syntax: "%opcode rd"
+    syntax: "%opcode %rd"
     outputs:
       rd: vector
 
   vector-nullary-uimm16:    # An instruction with a uint16 immediate input
-    syntax: "%opcode rd, imm16"
+    syntax: "%opcode %rd, %imval"
     immediates:
       imval:
         minval: 0
@@ -170,9 +180,14 @@ instruction-operands:
       rd: single
 
   vector-nullary-cst:    # An instruction with a magic constant as immediate field
-    syntax: "%opcode rd, imm5"
+    syntax: "%opcode %rd, %imval"
     immediates:
       imval:
+        type: enum
+        enum: [
+          "VFPU_HUGE", "VFPU_SQRT2", "VFPU_SQRT1_2", "VFPU_2_SQRTPI", "VFPU_2_PI", "VFPU_1_PI",
+          "VFPU_PI_4", "VFPU_PI_2", "VFPU_PI", "VFPU_E", "VFPU_LOG2E", "VFPU_LOG10E", "VFPU_LN2",
+          "VFPU_LN10", "VFPU_2PI", "VFPU_PI_6", "VFPU_LOG10TWO", "VFPU_LOG2TEN", "VFPU_SQRT3_2" ]
         minval: 1
         maxval: 19
     outputs:
@@ -180,7 +195,7 @@ instruction-operands:
 
   # Matrix related functions
   matrix-binary:     # An instruction with two arguments: rs and rt, both matrices
-    syntax: "%opcode rd, rs, rt"
+    syntax: "%opcode %rd, %rs, %rt"
     inputs:
       rs: matrix
       rt: matrix
@@ -188,7 +203,7 @@ instruction-operands:
       rd: matrix
 
   matrix-binary-scale:   # Second input is an scalar number instead of a matrix
-    syntax: "%opcode rd, rs, rt"
+    syntax: "%opcode %rd, %rs, %rt"
     inputs:
       rs: matrix
       rt: single
@@ -196,20 +211,20 @@ instruction-operands:
       rd: matrix
 
   matrix-unary:     # An instruction with one arguments, rs, which is a matrix
-    syntax: "%opcode rd, rs"
+    syntax: "%opcode %rd, %rs"
     inputs:
       rs: matrix
     outputs:
       rd: matrix
 
   matrix-nullary:     # An instruction with no inputs, just output (matrix)
-    syntax: "%opcode rd"
+    syntax: "%opcode %rd"
     outputs:
       rd: matrix
 
   # Mixed instructions (vec-mat)
   vector-matrix-transform:
-    syntax: "%opcode rd, rs, rt"
+    syntax: "%opcode %rd, %rs, %rt"
     inputs:
       rs: matrix
       rt: vector
@@ -218,14 +233,14 @@ instruction-operands:
 
   # VFPU Conditional move
   vfpu-condmove:
-    syntax: "%opcode rd, rs, imm3"
+    syntax: "%opcode %rd, %rs, %cc_sel"
     inputs:
       rs: vector
       vfpu_cc: vfpucc
     outputs:
       rd: vector
     immediates:
-      cc:
+      cc_sel:
         minval: 0
         maxval: 6
 
@@ -237,24 +252,39 @@ instruction-operands:
       offset: immediate
 
   # VFPU control access
-  vfpu-control-gpr:
-    syntax: "%opcode rt, imm8"
+  vfpu-control-gpr-read:
+    syntax: "%opcode %rt, $%ccreg"
+    outputs:
+      rt: gpr
     immediates:
-      regn:
+      ccreg:
         minval: 128
         maxval: 143
 
-  vfpu-control-read:
-    syntax: "%opcode rd, imm8"
+  vfpu-control-gpr-write:
+    syntax: "%opcode %rt, $%ccreg"
+    inputs:
+      rt: gpr
     immediates:
-      regn:
+      ccreg:
         minval: 128
         maxval: 143
 
-  vfpu-control-write:
-    syntax: "%opcode imm8, rs"
+  vfpu-control-vfpu-read:
+    syntax: "%opcode %rd, $%ccreg"
+    outputs:
+      rd: single
     immediates:
-      regn:
+      ccreg:
+        minval: 128
+        maxval: 143
+
+  vfpu-control-vfpu-write:
+    syntax: "%opcode $%ccreg, %rs"
+    inputs:
+      rs: single
+    immediates:
+      ccreg:
         minval: 128
         maxval: 143
 
@@ -370,7 +400,7 @@ encodings:
     fields:
       o: opcode      # 12 bit (6 + 6) opcode
       c: rcond       # 1 bit (false/true)
-      r: cc          # VFPU CC bit number
+      r: cc_sel      # VFPU CC bit number
       s: rs          # rs input register
       d: rd          # rd output register
       i: sizehi      # 1 for t/q flavors
@@ -392,21 +422,21 @@ encodings:
     fields:
       d: direction   # 1 bit (1 write, 0 read)
       g: gpr         # GPR reg number
-      r: vfpucc      # VFPU CC reg number
+      r: ccreg       # VFPU CC reg number
 
   vfpu-write-control:
     # An instruction to write VFPU CC registers (from a vector reg)
     encoding: "11010000010100010sssssssrrrrrrrr"
     fields:
       s: rs          # rs input register
-      r: vfpucc      # VFPU CC reg number
+      r: ccreg       # VFPU CC reg number
 
   vfpu-read-control:
     # An instruction to read VFPU CC registers (to a vector reg)
     encoding: "1101000001010000rrrrrrrr0ddddddd"
     fields:
       d: rd          # rd output register
-      r: vfpucc      # VFPU CC reg number
+      r: ccreg       # VFPU CC reg number
 
 # List of instructions defined in the ISA
 instructions:
@@ -454,14 +484,14 @@ instructions:
 
   # CC mangling instructions
   mtvc:
-    type: vfpu-control-gpr
+    type: vfpu-control-gpr-write
     encoding: vfpu-gpr-control
     title: "Move GPR to VFPU control register"
     description: "Writes the contents of a CPU general purpose register to the specified VFPU control register"
     direction: 1
 
   mfvc:
-    type: vfpu-control-gpr
+    type: vfpu-control-gpr-read
     encoding: vfpu-gpr-control
     title: "Move VFPU control register to GPR"
     description: "Writes the contents of the specified VPFU control register into a CPU general purpose register"
@@ -472,13 +502,13 @@ instructions:
     direction: 0
 
   vmtvc:
-    type: vfpu-control-write
+    type: vfpu-control-vfpu-write
     encoding: vfpu-write-control
     title: "Move vector register to VFPU control register"
     description: "Writes the contents of a VFPU vector general to the specified VFPU control register"
 
   vmfvc:
-    type: vfpu-control-read
+    type: vfpu-control-vfpu-read
     encoding: vfpu-read-control
     title: "Move VFPU control register to vector register"
     description: "Writes the contents of the specified VPFU control register into a VFPU vector register"
@@ -1647,13 +1677,13 @@ instructions:
     title: "Conditional move (false)"
     description: >
       Performs a register move operation (like vmov) conditional to a VFPU_CC bit being zero.
-      If imm3 has the special value of 6, each vector lane will check its corresponding bit instead.
+      If cc_sel has the special value of 6, each vector lane will check its corresponding bit instead.
       This can be used to conditionally move each of the elements based on, for instance, a vcmp operation.
-      A value of 7 in imm3 is not specified.
+      A value of 7 in cc_sel is not specified.
     pcode: >
-      @ rd[{i}] = (cc == 6) ?
-                  (vfpu_cc[{i}] ? rd[{i}] : rs[{i}]) :
-                  (vfpu_cc[cc]  ? rd[{i}] : rs[{i}])
+      @ rd[{i}] = (cc_sel == 6) ?
+                  (vfpu_cc[{i}]    ? rd[{i}] : rs[{i}]) :
+                  (vfpu_cc[cc_sel] ? rd[{i}] : rs[{i}])
     opcode: "110100101010"
     rcond: 1
     prefix: s
@@ -1670,9 +1700,9 @@ instructions:
       This can be used to conditionally move each of the elements based on, for instance, a vcmp operation.
       A value of 7 in imm3 is not specified.
     pcode: >
-      @ rd[{i}] = (cc == 6) ?
-                  (vfpu_cc[{i}] ? rs[{i}] : rd[{i}]) :
-                  (vfpu_cc[cc]  ? rs[{i}] : rd[{i}])
+      @ rd[{i}] = (cc_sel == 6) ?
+                  (vfpu_cc[{i}]    ? rs[{i}] : rd[{i}]) :
+                  (vfpu_cc[cc_sel] ? rs[{i}] : rd[{i}])
     opcode: "110100101010"
     rcond: 0
     prefix: s

@@ -110,6 +110,9 @@ class Instruction(object):
 		return self._opdinfo.outputs()
 
 	def syntax(self):
+		return self._opdinfo.syntax().replace("%opcode", self._name).replace("%", "")
+
+	def raw_syntax(self):
 		return self._opdinfo.syntax().replace("%opcode", self._name)
 
 	def register_compat(self):
