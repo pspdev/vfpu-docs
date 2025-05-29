@@ -56,6 +56,33 @@
           text-decoration: underline;
       }
 
+      table {
+        border: 1px solid #444;
+        border-collapse: collapse;
+        width: 50%;
+        margin-top: 15px;
+        margin-right: 15px;
+        font-size: 14px;
+      }
+      th {
+        border-bottom: 1px solid #ccc;
+        background-color: #eee;
+        text-align: center;
+        padding: 10px;
+      }
+      td {
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        text-align: center;
+        padding: 5px;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      td:last-child {
+        border-right: none;
+      }
+
       .matrixsvgdiv {
           text-align: center;
       }
@@ -630,6 +657,16 @@
                     % if instr["pseudocode"]:
                     <p class="inst-header">Pseudocode</p>
                     <pre class="pcode">${instr["pseudocode"]}</pre>
+                    % endif
+
+                    % if instr["imm-values"]:
+                    <p class="inst-header">Immediate encoding</p>
+                    <table>
+                      <tr><th>Symbol</th><th>Value</th></tr>
+                      % for value, istr in instr["imm-values"].items():
+                        <tr><td>${istr}</td><td>${value}</td></tr>
+                      % endfor
+                    </table>
                     % endif
 
                     <div class="divider" style="width:24%; margin:30px 0 50px;"></div>

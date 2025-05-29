@@ -14,11 +14,14 @@
 import argparse, re, subprocess, struct, uuid, os, instparse, reginfo, multiprocessing, itertools
 from tqdm import tqdm
 
+COLRED = '\033[91m'
+COLGREEN = '\033[92m'
+COLRESET = '\033[0m'
+
 parser = argparse.ArgumentParser(prog='asm-tester')
 parser.add_argument('--reference', dest='reference', required=True, help='Path (or executable within PATH) to invoke reference `as`')
 parser.add_argument('--undertest', dest='undertest', required=True, help='Path (or executable within PATH) to invoke for `as`')
 parser.add_argument('--objcopy', dest='objcopy', required=True, help='Path (or executable within PATH) to invoke for `objcopy`')
-parser.add_argument('--chunksize', dest='chunksize', type=int, default=128*1024, help='Block size (instruction count)')
 parser.add_argument('--instr', dest='instregex', default=".*", help='Instructions to emit (a regular expression)')
 parser.add_argument('--threads', dest='nthreads', type=int, default=8, help='Number of threads to use')
 
@@ -62,6 +65,26 @@ def run_sidebyside(asmfile):
 
   return (same, None, None)
 
+def run_errors(expected_insts, asmfile):
+  # These files should produce a ton of errors, each line should be invalid.
+  objf1 = tmpfile(name="obj")
+
+  p1 = subprocess.Popen([args.reference, "-march=allegrex", "-o", objf1, asmfile],
+    stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+
+  outp1 = p1.communicate()
+  p1.wait()
+  exit_code1 = p1.poll()
+
+  if exit_code1 != 0:
+    # Validate there's error lines
+    errlog = outp1[1].decode("ascii").strip()
+    numerrs = errlog.count("\n")
+    if numerrs == expected_insts:
+      return (True, None)
+
+  return (False, asmfile)
+
 def dict_product(indict):
   return (dict(zip(indict.keys(), values)) for values in itertools.product(*indict.values()))
 
@@ -94,12 +117,16 @@ def gencombs(instname, variables, elemcnt):
   return (dict_product(combos), subreginfo)
 
 # Given a list of immediates generate all their possible values and combinations
-def genimms(imms):
+def genimms(imms, numel):
   combos = {}
   for v, iinfo in imms.items():
     combos[v] = []
     if iinfo.get("type", None) == "enum":
-      combos[v] = iinfo["enum"]
+      cs = iinfo["enum"]
+      if isinstance(cs, dict):
+        combos[v] = cs["0sptq"[numel]]
+      else:
+        combos[v] = cs
     else:
       for val in range(iinfo["minval"], iinfo["maxval"] + 1):
         combos[v].append(str(val))
@@ -133,18 +160,14 @@ for instname, iobj in instparse.insts.items():
 # Aggregate all bits toghether to get a number of instructions to generate
 print("Testing %d different instructions!" % len(allinsts))
 
-def process_block(instname, iobj):
-  if any(k for k, v in iobj.inputs().items() if v.split(":")[0] not in ["single", "vector", "matrix", "vfpucc", "gpr"]):
-    # TODO Support other reg types!
-    print("Instruction", instname, "has some unsupported inputs", iobj.raw_syntax())
-    return (True, instname, 0)
-
-  if any(k for k, v in iobj.outputs().items() if v.split(":")[0] not in ["single", "vector", "matrix", "vfpucc", "gpr"]):
-    # TODO Support other reg types!
-    print("Instruction", instname, "has some unsupported outputs", iobj.raw_syntax())
-    return (True, instname, 0)
-
+def process_block(instname, iobj, validinsts):
   regs = iobj.inputs() | iobj.outputs()
+
+  if any(k for k, v in regs.items() if v.split(":")[0] not in ["single", "vector", "matrix", "vfpucc", "gpr"]):
+    # TODO Support other reg types!
+    print("Instruction", instname, "has some unsupported inputs/outputs", iobj.raw_syntax())
+    return (True, instname, 0)
+
   # No need to allocate CC registers :D
   regs = {k:v for k, v in regs.items() if v != "vfpucc"}
 
@@ -155,50 +178,61 @@ def process_block(instname, iobj):
   with open(asmfile, "w") as fd:
     regit, subreginfo = gencombs(instname, regs, iobj.numelems())
     for varcomb in regit:
-      # Validate that this combination of registers is even valid
-      if not check_overlap(iobj, varcomb, subreginfo):
-        continue
-
       # Fake one immediate if there are none. Something nicer would be better tho.
       imms = iobj.immediates() or {'dummyimm': {'type': 'interger', 'minval': 0, 'maxval': 0}}
 
-      for immcomb in genimms(imms):
+      for immcomb in genimms(imms, iobj.numelems()):
         istr = iobj.raw_syntax()
         for vname, vval in varcomb.items():
           istr = istr.replace("%" + vname, vval)
         for iname, ival in immcomb.items():
           istr = istr.replace("%" + iname, ival)
-        fd.write(istr + "\n")
-        numinsts += 1
 
-  # Run the disassemblers now!
-  success, ec1, ec2 = run_sidebyside(asmfile)
-  if not success:
-    return (False, instname, ec1, ec2, asmfile)
+        # Validate that this combination of registers is even valid
+        if check_overlap(iobj, varcomb, subreginfo) == validinsts:
+          fd.write(istr + "\n")
+          numinsts += 1
 
-  #os.unlink(asmfile)
+  if numinsts > 0:
+    # Run the disassemblers now!
+    if validinsts:
+      success, ec1, ec2 = run_sidebyside(asmfile)
+      if not success:
+        return (False, instname, ec1, ec2, asmfile)
+    else:
+      success, outp = run_errors(numinsts, asmfile)
+      if not success:
+        return (False, instname, asmfile)
+
+  os.unlink(asmfile)
   return (True, instname, numinsts)
 
 res = []
 finfo = []
 with multiprocessing.Pool(processes=args.nthreads) as executor:
   for instname, iobj in allinsts:
-    r = executor.apply_async(process_block, (instname, iobj))
-    res.append(r)
+    res.append((executor.apply_async(process_block, (instname, iobj, True)), True))
+    res.append((executor.apply_async(process_block, (instname, iobj, False)), False))
 
   executor.close()
 
-  totalinsts = 0
-  for r in tqdm(res):
+  totalinsts, badinsts = 0, 0
+  for r, t in tqdm(res):
     succ, *info = r.get()
     if succ is False:
       print(info)
     else:
-      totalinsts += info[1]
-      finfo.append("%s : %d instructions" % (info[0], info[1]))
+      if t:
+        totalinsts += info[1]
+        finfo.append(("%s : %d " + COLGREEN + "good instructions" + COLRESET) % (info[0], info[1]))
+      else:
+        if info[1]:
+          badinsts += info[1]
+          finfo.append(("%s : %d " + COLRED + "bad instructions" + COLRESET) % (info[0], info[1]))
 
 print("\n".join(finfo))
 print("--------------")
 print("Tested a total of %d instructions" % totalinsts)
+print("Validated a total of %d bad instructions" % badinsts)
 
 

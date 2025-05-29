@@ -54,6 +54,32 @@
       .matrixsvg {
           width: 35%;
       }
+
+      table {
+        border: 1px solid #444;
+        border-collapse: collapse;
+        width: 50%;
+        margin-top: 15px;
+        margin-right: 15px;
+        font-size: 14px;
+      }
+      th {
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+        padding: 10px;
+      }
+      td {
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        text-align: center;
+        padding: 5px;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      td:last-child {
+        border-right: none;
+      }
     </style>
   </head>
   <body>
@@ -193,6 +219,16 @@
         % if instr["pseudocode"]:
         <h3>Pseudocode</h3>
         <pre><code>${instr["pseudocode"]}</code></pre>
+        % endif
+
+        % if instr["imm-values"]:
+        <h3>Immediate encoding</h3>
+        <table>
+          <tr><th>Symbol</th><th>Value</th></tr>
+          % for value, istr in instr["imm-values"].items():
+            <tr><td>${istr}</td><td>${value}</td></tr>
+          % endfor
+        </table>
         % endif
 
         % if instr["auxfns"]:

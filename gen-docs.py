@@ -167,6 +167,16 @@ for instname, iobj in instparse.insts.items():
 			pcodeep = [ util.simplify_code(x) or x for x in pcodeep ]
 			pcode += pcodeep
 
+	imms = {}
+	for immname, imminfo in iobj.immediates().items():
+		if "enum" in imminfo:
+			cs = imminfo["enum"]
+			if isinstance(cs, dict):
+				imms = cs["0sptq"[iobj.numelems()]]
+			else:
+				imms = cs
+			imms = {i + imminfo["minval"]: x for i, x in enumerate(imms)}
+
 	# Inst encoding, fields and fixed bits
 	instlist.append({
 		"name": instname,
@@ -185,6 +195,7 @@ for instname, iobj in instparse.insts.items():
 		"fields": iobj.encoding().fields(),
 		"baseword": iobj.encoding().baseword(),
 		"basemask": iobj.encoding().basemask(),
+		"imm-values": imms,
 	})
 
 tmpl = open("docs/templates/template-%s.html" % args.format, "r").read()

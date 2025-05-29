@@ -138,15 +138,41 @@ instruction-operands:
         maxval: 31
 
   vector-unary-rot:       # rs is always single and has an extra imm5 field
-    syntax: "%opcode %rd, %rs, %imm5"
+    syntax: "%opcode %rd, %rs, %imval"
     inputs:
       rs: single
     outputs:
       rd: vector
     immediates:
       imval:
+        type: enum
+        enum:
+          p: [
+            "[c,s]", "[s,c]", "[s,0]", "[s,0]", "[c,s]", "[s,c]", "[0,s]", "[0,s]",
+            "[c,0]", "[0,c]", "[s,s]", "[0,0]", "[c,0]", "[0,c]", "[0,0]", "[s,s]",
+            "[c,-s]", "[-s,c]", "[-s,0]", "[-s,0]", "[c,-s]", "[-s,c]", "[0,-s]", "[0,-s]",
+            "[c,0]", "[0,c]", "[-s,-s]", "[0,0]", "[c,0]", "[0,c]", "[0,0]", "[-s,-s]" ]
+          t: [
+            "[c,s,s]", "[s,c,0]", "[s,0,c]", "[s,0,0]",
+            "[c,s,0]", "[s,c,s]", "[0,s,c]", "[0,s,0]",
+            "[c,0,s]", "[0,c,s]", "[s,s,c]", "[0,0,s]",
+            "[c,0,0]", "[0,c,0]", "[0,0,c]", "[s,s,s]",
+            "[c,-s,-s]", "[-s,c,0]", "[-s,0,c]", "[-s,0,0]",
+            "[c,-s,0]", "[-s,c,-s]", "[0,-s,c]", "[0,-s,0]",
+            "[c,0,-s]", "[0,c,-s]", "[-s,-s,c]", "[0,0,-s]",
+            "[c,0,0]", "[0,c,0]", "[0,0,c]", "[-s,-s,-s]" ]
+          q: [
+            "[c,s,s,s]", "[s,c,0,0]", "[s,0,c,0]", "[s,0,0,c]",
+            "[c,s,0,0]", "[s,c,s,s]", "[0,s,c,0]", "[0,s,0,c]",
+            "[c,0,s,0]", "[0,c,s,0]", "[s,s,c,s]", "[0,0,s,c]",
+            "[c,0,0,s]", "[0,c,0,s]", "[0,0,c,s]", "[s,s,s,c]",
+            "[c,-s,-s,-s]", "[-s,c,0,0]", "[-s,0,c,0]", "[-s,0,0,c]",
+            "[c,-s,0,0]", "[-s,c,-s,-s]", "[0,-s,c,0]", "[0,-s,0,c]",
+            "[c,0,-s,0]", "[0,c,-s,0]", "[-s,-s,c,-s]", "[0,0,-s,c]",
+            "[c,0,0,-s]", "[0,c,0,-s]", "[0,0,c,-s]", "[-s,-s,-s,c]" ]
         minval: 0
         maxval: 31
+
 
   vector-unary-mod:       # Features an extra imm8 field
     syntax: "%opcode %rd, %rs, %imval"
